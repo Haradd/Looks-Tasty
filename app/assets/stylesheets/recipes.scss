@@ -1,3 +1,26 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.nested-fields{
+
+  .recipe_ingredients_name{
+    display: inline-block;
+    margin-right: 15px !important;
+    width: 70%;
+  }
+
+  .recipe_steps_step{
+    float:center;
+    margin-right: 15px !important;
+    width: 90%;
+  }
+
+  .btn-step{
+    float: center;
+    margin-bottom:  20px;
+
+  }
+}

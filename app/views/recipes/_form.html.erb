@@ -11,27 +11,46 @@
     </div>
   <% end %>
 
-  <div class="panel-body">
-    <%= f.input :name, input_html: { class: 'form-control'} %>
-    <%= f.input :description, input_html: { class: 'form-control'} %>
-    <%= f.input :image, as: :file, input_html: { class: 'form-control'} %>
-  </div>
+  <%= f.input :name, input_html: { class: 'form-control'} %>
+  <%= f.input :description, input_html: { class: 'form-control'} %>
+  <%= f.input :image, as: :file, input_html: { class: 'form-control'} %>
 
-  <div class="row">
+
+  <div class="row" style="margin-top: 70px;">
     <div class="col-md-6">
-      <h3>ingredients</h3>
-      <div class="panel-body">
-        <div id="ingredients">
-          <%= f.simple_fields_for :ingredients do |ingredient| %>
-            <%= render 'ingredient_fields', :f => ingredient %>
-          <% end %>
-          <div class="links">
-            <%= link_to_add_association 'add ingredient', f, :ingredients,
-             class: 'btn btn-default add-button' %>
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4><strong>Ingredients</strong></h4></div>
+        <div class="panel-body">
+          <div id="ingredients">
+            <%= f.simple_fields_for :ingredients do |ingredient| %>
+              <%= render 'ingredient_fields', :f => ingredient %>
+            <% end %>
+            <div class="links">
+              <%= link_to_add_association 'add ingredient', f, :ingredients,
+               class: 'btn btn-default add-button' %>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4><strong>Steps</strong></h4></div>
+        <div class="panel-body">
+          <div id="steps">
+            <%= f.simple_fields_for :steps do |step| %>
+              <%= render 'step_fields', :f => step %>
+            <% end %>
+            <div class="links">
+              <%= link_to_add_association 'add step', f, :steps,
+               class: 'btn btn-default add-button' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 
