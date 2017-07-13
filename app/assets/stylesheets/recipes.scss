@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @mixin box-shadow {
-	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 3px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 3px 0;
+	box-shadow: rgba(0, 0, 0, 0.09) 0 3px 0;
 }
 
 .recipe {
@@ -40,6 +40,56 @@
 	}
 }
 
+//show
+.description{
+	background: white;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	@include box-shadow;
+	min-height: 360px;
+	padding: 0 10%;
+
+	h3{
+		text-align: center;
+	}
+	span{
+		margin-right: 5px;
+		
+	}
+
+}
+
+.ingredients, .steps{
+	background: white;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	@include box-shadow;
+	min-height: 360px;
+	padding: 35px 10%;
+	margin-left: 5%;
+	ul, ol{
+		padding-left: 20px;
+		li{
+			padding: 15px 0;
+			border-bottom: 1px solid #EAEAEA;
+		}
+	}
+
+}
+
+//form
+
+
+.recipe_image{
+	padding-left: 20px;
+}
+.recipe_portions{
+	width: 26%;
+}
+
+#recipe_description{
+	height: 210px;
+}
 
 .nested-fields{
 

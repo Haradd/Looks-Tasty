@@ -10,14 +10,88 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,600,700');
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
+
+body {
+
+  background-image: url(asset-path('strip5.png'))
+}
+
+
+
+.fa{
+  color: #e4d;
+  margin-right: 3px;
+}
 
 .panel-body{
   padding: 10px 0px 10px 80px;
+}
+
+.form-control{
+  width: 95%;
+}
+
+.col-right{
+	padding-left: 50px;
+}
+
+.navbar{
+  background-color: #cc7a7a;
+  height: 100px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  border-bottom: 7px dotted #eee;
+  .navbar-brand{
+    padding: 0;
+  }
+}
+
+
+
+//brand label
+@import "compass/css3";
+@import "compass/css3/transform";
+@import url('https://fonts.googleapis.com/css?family=Bangers');
+
+
+.brand-label {
+  padding: 0 8px;
+  margin: 0 auto;
+  h1 {
+    text-align: center;
+    font-weight: normal;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 40pt;
+    white-space: nowrap;
+    z-index: 1000;
+    font-family: 'Bangers', cursive;
+    text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
+    @include skew(0, -6.7deg, false);
+    @include transition-property(font-size);
+    @include transition-duration(0.5s);
+    em{
+      color: #f92c4f;
+    }
+
+  }
+}
+
+@media screen and (max-width: 50em) {
+  .brand-label{
+    h1 {
+      font-size: 20vw;
+     }
+  }
 }

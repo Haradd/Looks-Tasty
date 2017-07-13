@@ -12,7 +12,7 @@ class Recipe < ApplicationRecord
                                 reject_if: :all_blank,
                                 allow_destroy: true
 
-  validates :name, :description, :image, presence: true
-  has_attached_file :image, styles: { medium: "360x270#", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates :name,  :image, :ingredients, :steps, presence: true
+  has_attached_file :image, styles: {big: "550x370#", medium: "360x270#", thumb: "100x100#" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 end

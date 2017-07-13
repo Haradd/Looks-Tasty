@@ -1,14 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="recipe">
+      <div class=" image_wrapper">
+        <%= image_tag @recipe.image.url(:big) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="description">
+      <h3><%= @recipe.name %></h3>
+      <%= fa_icon "camera-retro" %>
+      <span>
+        <%= fa_icon "clock-o 2x" %>   <%= @recipe.time.hour %>:<%= @recipe.time.min %>
+      </span>
+      <span>
+        <%= fa_icon "group 2x" %>   <%= @recipe.portions.to_s %>
+      </span>
+      <p>
+        <%= @recipe.description %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="ingredients">
+      <h3>Ingredients</h3>
+      <ul>
+        <% @recipe.ingredients.each do |ingredient| %>
+          <li><%= ingredient.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="steps">
+      <h3>Steps</h3>
+      <ol>
+        <% @recipe.steps.each do |step| %>
+          <li><%= step.step %></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
