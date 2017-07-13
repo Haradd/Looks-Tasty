@@ -37,6 +37,8 @@ gem 'simple_form', '~> 3.5'
 gem 'paperclip', '~> 5.1'
 #provide nested forms
 gem 'cocoon', '~> 1.2', '>= 1.2.10'
+#pagination
+gem 'kaminari', '~> 1.0', '>= 1.0.1'
 
 group :development, :test do
   gem 'sqlite3'

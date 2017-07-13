@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipe = Recipe.all.order('created_at DESC').page(params[:name])
   end
 
   # GET /recipes/1
@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully added.' }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }
