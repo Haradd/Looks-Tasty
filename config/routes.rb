@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :recipes
 
-  root to: 'home#index'
+  root to: 'recipes#index'
 
   get '/about' => 'home#about', as: 'about'
 

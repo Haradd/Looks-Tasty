@@ -1,6 +1,8 @@
 class Recipe < ApplicationRecord
   paginates_per 4
 
+  belongs_to :user
+
   has_many :ingredients
   has_many :steps
 

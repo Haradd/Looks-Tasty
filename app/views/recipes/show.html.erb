@@ -1,4 +1,7 @@
+
+<% #to do: add alert content tag %>
 <p id="notice"><%= notice %></p>
+
 
 <div class="row">
   <div class="col-md-6">
@@ -11,7 +14,6 @@
   <div class="col-md-6">
     <div class="description">
       <h3><%= @recipe.name %></h3>
-      <%= fa_icon "camera-retro" %>
       <span>
         <%= fa_icon "clock-o 2x" %>   <%= @recipe.time.hour %>:<%= @recipe.time.min %>
       </span>
@@ -21,6 +23,7 @@
       <p>
         <%= @recipe.description %>
       </p>
+      <h5>added by <strong><%= @recipe.user.username %></strong> </h5>
     </div>
   </div>
 </div>
@@ -45,6 +48,13 @@
         <% end %>
       </ol>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="tip">
+    <h5>Cook's Tip  <%= fa_icon "lightbulb-o 2x" %></h5>
+    <p><%= @recipe.tip %></p>
   </div>
 </div>
 

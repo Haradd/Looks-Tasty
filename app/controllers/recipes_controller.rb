@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
 
   # GET /recipes
   # GET /recipes.json
@@ -14,7 +15,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
 
   end
 
@@ -25,7 +26,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     respond_to do |format|
       if @recipe.save
@@ -72,5 +73,10 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:name, :description, :image, :time, :tip,
       :portions, page:[:id], ingredients_attributes: [:id, :name, :_destroy], steps_attributes: [:id, :step, :_destroy])
+    end
+
+    def correct_user
+      @recipe = current_user.recipes.find_by(id: params[:id])
+      redirect_to recipes_path, notice: 'Hey, that is not your recipe!' if @recipe.nil?
     end
 end

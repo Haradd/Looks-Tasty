@@ -42,6 +42,8 @@ gem 'cocoon', '~> 1.2', '>= 1.2.10'
 #pagination
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 
+gem 'devise', '~> 4.2'
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
