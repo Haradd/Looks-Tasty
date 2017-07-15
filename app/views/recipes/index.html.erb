@@ -9,15 +9,16 @@
           <div class="image_wrapper">
             <%= link_to (image_tag recipe.image.url(:medium)), recipe %>
           </div>
-          <h3 class="recipe-name"><%= link_to recipe.name, recipe %></h3>
+          <div class="recipe-name">
+            <h3><%=link_to recipe.name, recipe %></h3>
+            <span>rating</span>
+          </div>
         </div>
       </div>
       <% end %>
   </div>
 <% end %>
 
-
-<%= link_to 'New Recipe', new_recipe_path %>
 
 <div class="text-center">
   <%= paginate @recipe %>

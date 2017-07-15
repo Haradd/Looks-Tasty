@@ -13,6 +13,7 @@
 	background: white;
 	border-radius: 5px;
 	margin-bottom: 40px;
+	cursor: pointer;
 	@include box-shadow;
 	.image_wrapper {
 		max-width: 100%;
@@ -29,16 +30,19 @@
 			transform: scale(1.075);
 		}
 	}
-	h2 {
-		padding: 15px 5%;
-		margin: 0;
-		font-size: 20px;
-		font-weight: normal;
-		line-height: 1.5;
-		a {
-			//color: $red;
+	.recipe-name{
+		h3{
+			padding: 15px 5%;
+			margin: 0;
+			font-size: 20px;
+			font-weight: normal;
+			line-height: 1.5;
+			a{
+				color: #555;
+			}
 		}
 	}
+
 }
 
 //show

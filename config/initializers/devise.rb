@@ -276,5 +276,5 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   #for using username to login
-  config.authentication_keys = [ :login ]
+  config.authentication_keys = [ :email ]
 end
