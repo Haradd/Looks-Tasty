@@ -100,6 +100,9 @@ Rails.application.configure do
     secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
     s3_region: ENV.fetch('AWS_REGION'),
     }
+<<<<<<< HEAD
   Paperclip::Attachment.default_options[:s3_host_name] = 's3-eu-central-1.amazonaws.com'
+=======
+>>>>>>> parent of c6ae1cc... paperclip aws-sdk error fix
   }
 end
