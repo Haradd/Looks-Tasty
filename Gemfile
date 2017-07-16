@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'simple_form', '~> 3.5'
 gem 'paperclip', '~> 5.1'
+gem 'aws-sdk', '~> 2.3'
 #provide nested forms
 gem 'cocoon', '~> 1.2', '>= 1.2.10'
 #pagination
