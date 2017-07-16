@@ -21,7 +21,7 @@
       <h5>added by <strong><%= @recipe.user.username %></strong> </h5>
       <% if @recipe.user == current_user %>
         <%= link_to 'Edit', edit_recipe_path(@recipe) %>
-      <% end %>  
+      <% end %>
     </div>
   </div>
 </div>
@@ -49,9 +49,11 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="tip">
-    <h5><strong>Cook's Tip </strong> <%= fa_icon "lightbulb-o 2x" %></h5>
-    <p><%= @recipe.tip %></p>
+<% if @recipe.tip? %>
+  <div class="row">
+    <div class="tip">
+      <h5><strong>Cook's Tip </strong> <%= fa_icon "lightbulb-o 2x" %></h5>
+      <p><%= @recipe.tip %></p>
+    </div>
   </div>
-</div>
+<% end %>
