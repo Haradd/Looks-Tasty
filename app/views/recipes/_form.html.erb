@@ -76,6 +76,10 @@
 
     <div class="actions" style="margin-bottom: 30px">
       <%= f.button :submit, class: "btn btn-primary" %>
+      <% if defined?(edit) %>
+        <%= link_to 'Remove Recipe', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+      <% end %>
     </div>
+
   <% end %>
 </div>
