@@ -55,6 +55,23 @@ body {
   }
 }
 
+#notice_wrapper{
+  width: 90%;
+  margin: 20px auto 10px auto;
+  border: 3px solid $icon-red;
+  border-radius: 10px;
+  background-color: $yellow;
+  opacity: 0.9;
+  p{
+    padding: 30px 0;
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+}
+
 .background{
   background-color: #eee;
   @include box-shadow;
@@ -69,9 +86,6 @@ body {
   margin-right: 3px;
 }
 
-.panel-body{
-  padding: 10px 0px 10px 80px;
-}
 
 .form-control{
   width: 95%;

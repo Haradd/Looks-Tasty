@@ -10,7 +10,18 @@
   </head>
 
   <body>
-    <%= render 'home/header' %>
+
+    <%= render 'layouts/header' %>
+
+    <% if notice %>
+      <div id="notice_wrapper">
+        <p id="notice"><%= notice %></p>
+      </div>
+    <% elsif alert %>
+      <div id="notice_wrapper">
+        <p id="alert"><%= alert %></p>
+      </div>
+    <% end %>
 
     <div class="container">
       <%= yield %>
