@@ -194,21 +194,15 @@ body {
 }
 
 .button-filter {
-  background: $yellow;
+  background: $yellow-dark;
   border-radius: 10px;
-  border: 3px solid $yellow;
+  border: 3px solid $yellow-dark;
   margin: 5px 10px 5px 10px;
   color: #fff;
-  background: {
-    image: linear-gradient(45deg,$yellow 50%, transparent 50%);
-    position: 100%;
-    size: 400%;
-  }
-  transition: background 300ms ease-in-out ;
 
   &:hover {
     border: 3px solid $background-red;
-    background-color: $yellow ;
+    background-color: $yellow-dark ;
     background-position: 0;
     color: #fff;
   }

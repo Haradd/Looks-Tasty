@@ -12,9 +12,9 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require cocoon
 //= require_tree .
 
@@ -22,5 +22,5 @@
 $(document).ready(function(){
   setTimeout(function(){
     $('#notice_wrapper').fadeOut("slow");
-  }, 3000);
+  }, 3000);zzz
 });

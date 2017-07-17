@@ -9,13 +9,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
   </head>
 
   <body>
@@ -34,15 +27,15 @@
 
     <div class="filter">
       <div class="filter_wrapper">
-        <%= link_to 'All', recipes_path, class: 'btn button-filter' %>
+        <%= link_to_first_recipe 'All', recipes_path, class: 'btn button-filter' %>
         <% Category.all.each do |category| %>
-          <%= link_to category.name, recipes_path(category: category.name), class: 'btn button-filter' %>
+          <%= link_to_first_recipe category.name, recipes_path(category: category.name), class: 'btn button-filter' %>
         <% end %>
       </div>
     </div>
 
 
-    <div class="container content">
+    <div class="container content" id="first">
       <%= yield %>
     </div>
 

@@ -7,10 +7,10 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     if params[:category].blank?
-      @recipe = Recipe.all.order('created_at DESC').page(params[:page]).per(4)
+      @recipe = Recipe.all.order('created_at DESC').page(params[:page]).per(6)
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @recipe = Recipe.where(category_id: @category_id).order('created_at DESC').page(params[:page]).per(4)
+      @recipe = Recipe.where(category_id: @category_id).order('created_at DESC').page(params[:page]).per(6)
     end
 
   end
