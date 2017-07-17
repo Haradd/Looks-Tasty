@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>LooksTasty</title>
-    <%= favicon_link_tag 'chef-flat.ico' %>
+    <%= favicon_link_tag 'chef.ico' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 
   </head>
 
@@ -25,7 +26,17 @@
       </div>
     <% end %>
 
-    <div class="container">
+    <div class="filter">
+      <div class="filter_wrapper">
+        <%= link_to 'All', recipes_path, class: 'btn button-filter' %>
+        <% Category.all.each do |category| %>
+          <%= link_to category.name, recipes_path(category: category.name), class: 'btn button-filter' %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="container content">
       <%= yield %>
     </div>
 

@@ -86,7 +86,7 @@ body {
   @include box-shadow;
 }
 
-.container{
+.content{
   margin-top: 70px;
   margin-bottom: 40px;
 }
@@ -189,6 +189,28 @@ body {
   }
 }
 
+.button-filter {
+  background: $yellow;
+  border-radius: 10px;
+  border: 3px solid $yellow;
+  margin: 5px 10px 5px 10px;
+  color: #fff;
+  background: {
+    image: linear-gradient(45deg,$yellow 50%, transparent 50%);
+    position: 100%;
+    size: 400%;
+  }
+  transition: background 300ms ease-in-out ;
+
+  &:hover {
+    border: 3px solid $background-red;
+    background-color: $yellow ;
+    background-position: 0;
+    color: #fff;
+  }
+}
+
+
 //brand label
 @import "compass/css3";
 @import "compass/css3/transform";
@@ -196,8 +218,6 @@ body {
 
 
 .brand-label {
-  padding: 0 8px;
-  margin: 0 auto;
   h1 {
     text-align: center;
     font-weight: normal;
@@ -218,14 +238,6 @@ body {
   }
 }
 
-@media screen and (max-width: 50em) {
-  .brand-label{
-    h1 {
-      font-size: 20vw;
-     }
-  }
-}
-
 //pagination
 
 .pagination{
@@ -243,6 +255,24 @@ body {
   }
 }
 
+//category filter
+.filter{
+  width: 65%;
+  margin: 10px auto 0 auto;
+  background-color: #fff;
+  background-image: url(asset-path('restaurant.png'));
+
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  @include box-shadow;
+  .filter_wrapper{
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+  }
+
+}
 
 //footer
 .footer{
@@ -264,7 +294,11 @@ body {
       color: #555 !important;
       transform: translatey(10px);
       margin-right: 15px;
+      &:hover{
+        color: #333 !important;
+      }
     }
+
 
   }
 }

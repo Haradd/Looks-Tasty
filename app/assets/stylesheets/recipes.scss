@@ -119,7 +119,6 @@
 
 //form
 
-
 .recipe_image{
 	padding-left: 20px;
 }
@@ -132,8 +131,14 @@
 }
 
 #recipe_description{
-	height: 210px;
+	height: 265px;
 
+}
+
+#recipe_category_id{
+	margin-left: -15px;
+	margin-bottom: 10px;
+	width: 50%;
 }
 
 .last_row_form{
