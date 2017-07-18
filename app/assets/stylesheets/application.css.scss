@@ -87,7 +87,7 @@ body {
 }
 
 .content{
-  margin-top: 70px;
+//  margin-top: 40px;
   margin-bottom: 40px;
 }
 
@@ -193,21 +193,6 @@ body {
   }
 }
 
-.button-filter {
-  background: $yellow-dark;
-  border-radius: 10px;
-  border: 3px solid $yellow-dark;
-  margin: 5px 10px 5px 10px;
-  color: #fff;
-
-  &:hover {
-    border: 3px solid $background-red;
-    background-color: $yellow-dark ;
-    background-position: 0;
-    color: #fff;
-  }
-}
-
 
 //brand label
 @import "compass/css3";
@@ -256,8 +241,7 @@ body {
 //category filter
 .filter{
   width: 65%;
-  margin: 10px auto 0 auto;
-  background-color: #fff;
+  margin: 50px auto;
   background-image: url(asset-path('restaurant.png'));
 
   padding: 20px;
@@ -269,7 +253,27 @@ body {
     width: 90%;
     text-align: center;
   }
+}
 
+.button-filter {
+  background: $yellow;
+  border-radius: 10px;
+  border: 3px solid $yellow;
+  margin: 5px 10px 5px 10px;
+  color: #fff;
+
+  &:hover {
+    border: 3px solid $background-red;
+    background-color: $yellow ;
+    background-position: 0;
+    color: #fff;
+  }
+}
+.active{
+  border: 3px solid $background-red !important;
+  background-color: $yellow ;
+  background-position: 0;
+  color: #fff;
 }
 
 //footer

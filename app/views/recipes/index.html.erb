@@ -1,6 +1,14 @@
+<div class="filter">
+  <div class="filter_wrapper">
+    <%= active_link_to 'All', recipes_path, class: 'btn button-filter' %>
+    <% Category.all.each do |category| %>
+      <%= active_link_to category.name, recipes_path(category: category.name), class: 'btn button-filter' %>
+    <% end %>
+  </div>
+</div>
 
 <% @recipe.each_slice(3) do |recipes| %>
-  <div class="row">
+  <div class="row" id="first">
     <% recipes.each do |recipe| %>
       <div class="col-md-4">
         <div class="recipe">
