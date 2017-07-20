@@ -6,14 +6,18 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    if params[:category].blank?
-      @recipe = Recipe.all.order('created_at DESC').page(params[:page]).per(6)
+    pages = 12
+    if params[:search].present?
+      @recipe = Recipe.where('name LIKE ?', "%#{params[:search]}%").order('created_at DESC').page(params[:page]).per(pages)
+    elsif params[:category].blank?
+      @recipe = Recipe.all.order('created_at DESC').page(params[:page]).per(pages)
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @recipe = Recipe.where(category_id: @category_id).order('created_at DESC').page(params[:page]).per(6)
+      @recipe = Recipe.where(category_id: @category_id).order('created_at DESC').page(params[:page]).per(pages)
     end
 
   end
+
 
   # GET /recipes/1
   # GET /recipes/1.json
@@ -78,8 +82,8 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :image, :time, :tip,
-      :portions, :category_id, page:[:id], ingredients_attributes: [:id, :name, :_destroy],
+      params.require(:recipe).permit(:search, :name, :description, :image, :time, :tip,
+      :portions, :category_id,  page:[:id], ingredients_attributes: [:id, :name, :_destroy],
       steps_attributes: [:id, :step, :_destroy])
     end
 

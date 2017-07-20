@@ -12,5 +12,5 @@ module ApplicationHelper
 
     "<a class='#{class_arg[:class]}' href='#{href}#first'>#{name}</a>".html_safe
   end
-  
+
 end
