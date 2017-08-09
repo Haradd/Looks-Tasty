@@ -1,4 +1,4 @@
-# README
+# Looks Tasty
 
 
 This is a simple recipe box app built for training. 
