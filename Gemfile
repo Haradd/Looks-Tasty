@@ -69,6 +69,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   #for RailsPanel in Chrome
   gem 'meta_request'
+  
+  gem 'pry-rails'
 end
 
 group :production do
