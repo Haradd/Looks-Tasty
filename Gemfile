@@ -7,7 +7,6 @@ end
 
 ruby '2.3.1'
 
-gem "erb2haml"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 
@@ -56,6 +55,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rubocop', require: false
+
 end
 
 group :development do
