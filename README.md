@@ -1,24 +1,11 @@
-# README
+# Looks Tasty
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+This is a simple recipe box app built for training. 
+Feel free to edit, test or just have fun.
 
-* Ruby version
+* Works perfect on Ruby 2.3.1 and Rails 5.1.2
 
-* System dependencies
 
-* Configuration
+Demo app at - https://looks-tasty.herokuapp.com/
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
