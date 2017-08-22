@@ -5,12 +5,11 @@ module ApplicationHelper
 
   def active_link_to(name, href, class_arg)
     if current_page?(recipes_path(category: name))
-      class_arg[:class] += ' active'
-    elsif params[:category] == nil && name == "All"
-      class_arg[:class] += ' active'
+      class_arg[:class] += " active"
+    elsif params[:category].nil? && name == "All"
+      class_arg[:class] += " active"
     end
 
     "<a class='#{class_arg[:class]}' href='#{href}#first'>#{name}</a>".html_safe
   end
-
 end

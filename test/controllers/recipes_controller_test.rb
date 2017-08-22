@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class RecipesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create recipe" do
-    assert_difference('Recipe.count') do
+    assert_difference("Recipe.count") do
       post recipes_url, params: { recipe: { description: @recipe.description, name: @recipe.name } }
     end
 
@@ -39,7 +39,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy recipe" do
-    assert_difference('Recipe.count', -1) do
+    assert_difference("Recipe.count", -1) do
       delete recipe_url(@recipe)
     end
 

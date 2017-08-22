@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
@@ -15,5 +15,4 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     get home_contact_url
     assert_response :success
   end
-
 end
