@@ -1,0 +1,14 @@
+dependencies:
+  pre:
+    - export NODE_ENV=test
+    - export RAILS_ENV=test
+    - export RACK_ENV=test
+  override:
+    - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+  cache_directories:
+    - vendor/bundle
+test:
+  override:
+    - bundle exec rspec
+  post:
+    - bundle exec rubocop
