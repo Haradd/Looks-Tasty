@@ -5,7 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.3.1'
 
+gem "erb2haml"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 
@@ -44,6 +46,8 @@ gem 'cocoon', '~> 1.2', '>= 1.2.10'
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 
 gem 'devise', '~> 4.2'
+
+gem 'haml-rails'
 
 group :development, :test do
   gem 'sqlite3'
