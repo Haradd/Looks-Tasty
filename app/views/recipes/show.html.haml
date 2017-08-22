@@ -1,0 +1,42 @@
+.row
+  .col-md-6
+    .recipe
+      .image_wrapper
+        = image_tag @recipe.image.url(:big)
+  .col-md-6
+    .description
+      %h3= @recipe.name
+      %span
+        = fa_icon "clock-o 2x"
+        = @recipe.time.hour
+        \:#{@recipe.time.min}
+      %span
+        = fa_icon "group 2x"
+        = @recipe.portions.to_s
+      %p
+        = @recipe.description
+      %h5
+        added by
+        %strong= @recipe.user.username
+      - if @recipe.user == current_user
+        = link_to 'Edit', edit_recipe_path(@recipe)
+.row
+  .col-md-6
+    .ingredients
+      %h3 Ingredients
+      %ul
+        - @recipe.ingredients.each do |ingredient|
+          %li= ingredient.name
+  .col-md-6
+    .steps
+      %h3 Steps
+      %ol
+        - @recipe.steps.each do |step|
+          %li= step.step
+- if @recipe.tip?
+  .row
+    .tip
+      %h5
+        %strong Cook's Tip
+        = fa_icon "lightbulb-o 2x"
+      %p= @recipe.tip

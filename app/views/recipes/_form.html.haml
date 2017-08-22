@@ -1,0 +1,56 @@
+.container.background
+  %h1= header
+  = simple_form_for(@recipe, html: { class: 'form-horizontal', multipart: true }) do |f|
+    - if recipe.errors.any?
+      .alert.alert-danger
+        %h5
+          %strong
+            = pluralize(recipe.errors.count, "error")
+            prevented this recipe from being saved:
+        %ul
+          - recipe.errors.full_messages.each do |message|
+            %li= message
+    .row
+      .col-md-6
+        = f.input :name, input_html: { class: 'form-control'}
+      .col-md-6
+        = f.input :image, as: :file, input_html: { class: 'form-control'}
+    .row
+      .col-md-6
+        = f.input :description, input_html: { class: 'form-control'}
+      .col-md-6.col-right
+        .row
+          = f.input :time, label: 'Ready in (H:Min)', input_html: { class: 'form-control'}
+          = f.input :portions, input_html: { class: 'form-control'}, placeholder: 'eg 4', min: '1'
+          = f.collection_select :category_id, Category.all, :id, :name, |
+            {prompt: "Choose a category"}, class: 'form-control'        |
+          = f.input :tip, input_html: { class: 'form-control'}
+    .row.last_row_form
+      .col-md-6
+        .panel.panel-default
+          .panel-heading
+            %h4
+              %strong Ingredients
+          .panel-body
+            #ingredients
+              = f.simple_fields_for :ingredients,  html: { class: 'form-horizontal' } do |ingredient|
+                = render 'ingredient_fields', :f => ingredient
+              .links
+                = link_to_add_association 'add ingredient', f, :ingredients, |
+                  class: 'btn btn-default add-button'                        |
+      .col-md-6
+        .panel.panel-default
+          .panel-heading
+            %h4
+              %strong Steps
+          .panel-body
+            #steps
+              = f.simple_fields_for :steps do |step|
+                = render 'step_fields', :f => step
+              .links
+                = link_to_add_association 'add step', f, :steps, |
+                  class: 'btn btn-default add-button'            |
+    .actions{:style => "margin-bottom: 30px"}
+      = f.button :submit, class: "btn btn-primary"
+      - if defined?(edit)
+        = link_to 'Remove Recipe', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"

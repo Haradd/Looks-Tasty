@@ -1,0 +1,17 @@
+.filter
+  .filter_wrapper
+    = active_link_to 'All', recipes_path, class: 'btn button-filter'
+    - Category.all.each do |category|
+      = active_link_to category.name, recipes_path(category: category.name), class: 'btn button-filter'
+- @recipe.each_slice(3) do |recipes|
+  #first.row
+    - recipes.each do |recipe|
+      .col-md-4
+        .recipe
+          .image_wrapper
+            = link_to (image_tag recipe.image.url(:medium)), recipe
+          .recipe-name
+            %h3= link_to recipe.name, recipe
+            - #to do: add rating
+.text-center
+  = paginate @recipe

@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title LooksTasty
+    = favicon_link_tag 'chef.ico'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'layouts/header'
+    - if notice
+      #notice_wrapper
+        %p#notice= notice
+    - elsif alert
+      #notice_wrapper
+        %p#alert= alert
+    .container.content
+      = yield
+    = render 'layouts/footer'
