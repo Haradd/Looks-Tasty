@@ -20,11 +20,11 @@ class Recipe < ApplicationRecord
                             default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: %r{\Aimage\/.*\z}
 
-  scope :search, lambda do |word|
+  scope :search, lambda { |word|
     where("name LIKE ?", "%#{word}%") if word.present?
-  end
+  }
 
-  scope :by_category, lambda do |category|
+  scope :by_category, lambda { |category|
     if category.blank?
       order("created_at DESC")
     else
@@ -32,5 +32,5 @@ class Recipe < ApplicationRecord
         .where(categories: { name: category })
         .order("recipes.created_at DESC")
     end
-  end
+  }
 end
