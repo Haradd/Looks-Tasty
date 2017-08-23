@@ -45,7 +45,7 @@ Name |  Version |
 
 ## You want to run a project on Your local machine - let's to it!
 
-  * `cd ~/Developer/team_delta_project`
+  * `cd ~/Developer/Looks-Tasty`
   * `rails s`
 
 # Running Tests :diamonds:
