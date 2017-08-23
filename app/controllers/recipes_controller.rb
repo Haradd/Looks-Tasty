@@ -7,14 +7,8 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     pages = 12
-    if params[:search].present?
-      @recipe = Recipe.where("name LIKE ?", "%#{params[:search]}%").order("created_at DESC").page(params[:page]).per(pages)
-    elsif params[:category].blank?
-      @recipe = Recipe.all.order("created_at DESC").page(params[:page]).per(pages)
-    else
-      @category_id = Category.find_by(name: params[:category]).id
-      @recipe = Recipe.where(category_id: @category_id).order("created_at DESC").page(params[:page]).per(pages)
-    end
+    @recipe = Recipe.search(params[:search])
+    @recipe = @recipe.by_category(params[:category]).page(params[:page]).per(pages)
   end
 
   # GET /recipes/1
