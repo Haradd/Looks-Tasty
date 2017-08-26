@@ -18,8 +18,8 @@ class UsersController < ApplicationController
       UserProvider.create!(
         provider: auth["provider"],
         uid: auth["uid"],
-        user_id: @user.id)
-      binding.pry
+        user_id: @user.id
+      )
 
       sign_in_and_redirect @user, event: :authentication
     else
@@ -34,8 +34,7 @@ class UsersController < ApplicationController
   end
 
   def require_finishing_oauth_sign_up
-    unless session["devise.new_user"].present?
-      redirect_to recipes_path, notice: "Sorry, something went wrong!"
-    end
+    return if session["devise.new_user"].present?
+    redirect_to recipes_path, notice: "Sorry, something went wrong!"
   end
 end
