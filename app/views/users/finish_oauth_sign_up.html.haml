@@ -1,0 +1,14 @@
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel-heading
+        %h2 Complete registration
+      .panel-body
+        = simple_form_for(@user, url: users_finish_sign_up_path, method: 'post') do |f|
+          = f.error_notification
+          .form-group
+            = f.input :username, required: true, input_html: { class: 'form-control' }
+          .form-actions
+            = f.button :submit, "Create", class: "btn button2"
+          %br/
+      .panel-footer
