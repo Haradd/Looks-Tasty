@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-  resources :recipes
-
   root to: 'recipes#index'
+
+  devise_scope :user do
+      get 'users/finish_sign_up' => 'users#finish_oauth_sign_up'
+      post 'users/finish_sign_up' => 'users#configure_profile'
+  end
+
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+  resources :recipes
 
   get '/about' => 'home#about', as: 'about'
 
