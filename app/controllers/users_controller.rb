@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user.password = Devise.friendly_token[0, 20]
 
     if @user.save
-      auth = session["devise.facebook_data"]
+      auth = session["devise.oauth_data"]
       UserProvider.create!(
         provider: auth["provider"],
         uid: auth["uid"],
