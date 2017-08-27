@@ -5,10 +5,18 @@
         %h2 Sign Up
       .panel-body
         .auth-providers
-          .fb-provider
-            = link_to user_facebook_omniauth_authorize_path, class: "btn btn-block btn-lg btn-social btn-facebook" do
-              %span.fa.fa-facebook
-                Sign in with Facebook
+          .provider.fb
+            = link_to user_facebook_omniauth_authorize_path do
+              = fa_icon 'facebook 2x'
+              %span Sign up with Facebook
+
+          .provider.google
+            = link_to user_facebook_omniauth_authorize_path do
+              = fa_icon 'google 2x'
+              %span Sign up with Google
+
+        .or-divider
+          %span or
 
         = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = f.error_notification

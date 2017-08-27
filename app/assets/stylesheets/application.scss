@@ -24,7 +24,7 @@
 @import "header";
 @import "footer";
 @import "recipes";
-@import "bootstrap-social";
+@import "social-buttons";
 
 
 
@@ -161,6 +161,27 @@ body {
       background-color: $yellow;
       border-color: $yellow;
     }
+  }
+}
+
+.or-divider{
+  display: flex;
+  align-items: center;
+  margin: 3em;
+  &::before,
+  &::after{
+    content: '';
+    display: block;
+    border: 1px solid #c9c8c8;
+    flex-grow: 1;
+  }
+  span{
+    border: 2px solid #c9c8c8;
+    border-radius: 50%;
+    padding: 1em;
+    font-size: 12px;
+    font-weight: bold;
+    color: #a4a4a4;
   }
 }
 
