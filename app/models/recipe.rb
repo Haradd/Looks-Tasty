@@ -4,8 +4,8 @@ class Recipe < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  has_many :ingredients
-  has_many :steps
+  has_many :ingredients, dependent: :destroy
+  has_many :steps, dependent: :destroy
 
   accepts_nested_attributes_for :ingredients,
                                 reject_if:  :all_blank,
@@ -16,7 +16,7 @@ class Recipe < ApplicationRecord
                                 allow_destroy: true
 
   validates :name,  :image, :ingredients, :steps, presence: true
-  has_attached_file :image, styles: { big: "550x370#", medium: "360x270#" },
+  has_attached_file :image, styles: { big: "550x370#", medium: "360x270#", small: "100x90#" },
                             default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: %r{\Aimage\/.*\z}
 

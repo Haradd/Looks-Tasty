@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :require_finishing_oauth_sign_up,
                  only: %i[finish_oauth_sign_up configure_profile]
+  before_action :check_if_signed_in, only: :recipes
+
+  def recipes
+    @recipes = current_user.recipes
+  end
 
   # GET /users/finish_sign_up
   def finish_oauth_sign_up
@@ -35,6 +40,11 @@ class UsersController < ApplicationController
 
   def require_finishing_oauth_sign_up
     return if session["devise.new_user"].present?
+    redirect_to recipes_path, notice: "Sorry, something went wrong!"
+  end
+
+  def check_if_signed_in
+    return if current_user.present?
     redirect_to recipes_path, notice: "Sorry, something went wrong!"
   end
 end

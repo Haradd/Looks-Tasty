@@ -1,0 +1,15 @@
+%ul.users-recipes
+  -@recipes.each do |recipe|
+    %li.users-recipe
+      = link_to recipe do
+        .users-image-wrapper
+          = image_tag recipe.image.url(:small)
+        .users-recipe-name
+          = recipe.name
+      .users-recipe-edit-button
+        = link_to 'Edit', edit_recipe_path(recipe), class: 'btn btn-default'
+      .users-recipe-remove-button
+        = link_to 'Remove', recipe, method: :delete, class: 'btn btn-danger',
+            data: { confirm: 'Are you sure?' }
+      .users-recipe-date
+        = recipe.created_at.strftime("%d/%m/%Y")
