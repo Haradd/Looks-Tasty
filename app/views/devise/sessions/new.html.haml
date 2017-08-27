@@ -4,6 +4,19 @@
       .panel-heading
         %h2 Sign In
       .panel-body
+        .auth-providers
+          .provider.fb
+            = link_to user_facebook_omniauth_authorize_path do
+              = fa_icon 'facebook 2x'
+              %span Sign in with Facebook
+
+          .provider.google
+            = link_to user_facebook_omniauth_authorize_path do
+              = fa_icon 'google 2x'
+              %span Sign in with Google
+        .or-divider
+          %span or
+
         = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           = f.error_notification
           .form-group
