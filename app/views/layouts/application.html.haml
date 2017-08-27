@@ -11,10 +11,10 @@
   %body
     = render 'layouts/header'
     - if notice
-      #notice_wrapper
+      #notice-wrapper
         %p#notice= notice
     - elsif alert
-      #notice_wrapper
+      #notice-wrapper
         %p#alert= alert
     .container.content
       = yield
