@@ -1,26 +1,49 @@
-// Place all the styles related to the Recipes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+ .filter{
+   width: 65%;
+   margin: 50px auto;
+   background-image: url(asset-path('restaurant.png'));
 
+   padding: 20px;
+   border-radius: 10px;
+   margin-top: 20px;
+   @include box-shadow;
+   .filter-wrapper{
+     margin: 0 auto;
+     width: 90%;
+     text-align: center;
+   }
+ }
 
-@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+ .button-filter {
+   background: $yellow;
+   border-radius: 10px;
+   border: 3px solid $yellow;
+   margin: 5px 10px 5px 10px;
+   color: #fff;
 
-@mixin box-shadow {
-	-webkit-box-shadow: -6px 6px 23px -9px rgba(0,0,0,0.51);
-	-moz-box-shadow: -6px 6px 23px -9px rgba(0,0,0,0.51);
-	box-shadow: -6px 6px 23px -9px rgba(0,0,0,0.51);
-}
+   &:hover {
+     border: 3px solid $background-red;
+     background-color: $yellow ;
+     background-position: 0;
+     color: #fff;
+   }
+ }
+ .active{
+   border: 3px solid $background-red !important;
+   background-color: $yellow ;
+   background-position: 0;
+   color: #fff;
+ }
 
- $red: #d71a2d;
 .recipe {
 	background: white;
 	border-radius: 5px;
 	margin-bottom: 40px;
 	cursor: pointer;
-	@include box-shadow;
-	.image_wrapper {
+	@include box-shadow-recipe;
+	.image-wrapper {
 		max-width: 100%;
-		border-radius: 5px 5px 0 0;
+		border-radius: 5px;
 		overflow: hidden;
 	}
 	img {
@@ -53,7 +76,7 @@
 	background: #eee;
 	border: 1px solid #ddd;
 	border-radius: 5px;
-	@include box-shadow;
+	@include box-shadow-recipe;
 	min-height: 360px;
 	padding: 0 10%;
 	margin-bottom: 2%;
@@ -75,7 +98,7 @@
 	//background: white;
 	//border: 1px solid #ddd;
 	border-radius: 5px;
-	@include box-shadow;
+	@include box-shadow-recipe;
 	min-height: 360px;
 	padding: 35px 10%;
 	margin-bottom: 2%;

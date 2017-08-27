@@ -1,0 +1,198 @@
+@import 'bootstrap-sprockets';
+
+@import 'settings/color-variables';
+@import 'settings/z-index-variables';
+@import 'settings/typography-variables';
+@import 'settings/components-variables';
+@import 'settings/views-variables';
+@import 'framework/variables';
+
+@import 'framework/components';
+
+@import 'settings/breakpoint-variables';
+
+@import 'utilities/functions';
+@import 'utilities/mixins';
+@import 'utilities/shared';
+@import 'utilities/typography';
+
+
+@import 'framework/overrides';
+
+@import "font-awesome";
+
+@import "header";
+@import "footer";
+@import "recipes";
+@import "social-buttons";
+
+
+
+html{
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: $footer-height;
+  background-image: url(asset-path('strip5.png'));
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: left;
+
+  a{
+    cursor: pointer;
+    &:hover{
+     background: none;
+     border: none;
+     text-decoration: none;
+     color: $icon-red;
+   }
+  }
+}
+
+#notice-wrapper{
+  width: 90%;
+  margin: 20px auto 10px auto;
+  border: 3px solid $icon-red;
+  border-radius: 10px;
+  background-color: $yellow;
+  opacity: 0.9;
+  p{
+    padding: 30px 0;
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+}
+
+.background{
+  background-color: #eee;
+  @include box-shadow;
+}
+
+.content{
+  margin-bottom: 40px;
+}
+
+.fa{
+  color: $icon-red;
+  margin-right: 3px;
+}
+
+
+.form-control{
+  width: 95%;
+}
+
+.col-right{
+	padding-left: 50px;
+}
+
+.panel.panel-default{
+  margin-top: 60px;
+  @include box-shadow;
+}
+
+.form-control:focus {
+    border-color: $yellow;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px $yellow,0 0 8px $yellow;
+    box-shadow: inset 0 1px 1px $yellow,0 0 8px $yellow;
+}
+
+.row{
+  padding: 10px;
+}
+
+
+//buttons
+.btn{
+  margin: 5px;
+}
+
+.button {
+  // background: $yellow;
+  border-radius: 10px;
+  border: 3px solid $yellow;
+
+  color: #fff;
+  background: {
+    image: linear-gradient(45deg,$yellow 50%, transparent 50%);
+    position: 100%;
+    size: 400%;
+  }
+  transition: background 300ms ease-in-out ;
+
+  &:hover {
+    border: 3px solid $yellow-dark !important;
+    background-color: $yellow !important;
+    background-position: 0;
+    color: #fff !important;
+  }
+}
+
+.button-full {
+  border-radius: 10px;
+  border-color: $yellow;
+  border-width: 3px;
+  color: #fff;
+  box-shadow: 0 0 40px 40px $yellow inset, 0 0 0 0 $yellow;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 10px 0 $yellow inset, 0 0 10px 4px $yellow;
+    color: #fff !important;
+  }
+}
+
+.pagination{
+  li{
+    a,span{
+      color: $yellow-dark;
+    }
+  }
+  .active{
+    a, a:focus, a:hover,
+    span, span:focus, span:hover{
+      background-color: $yellow;
+      border-color: $yellow;
+    }
+  }
+}
+
+.or-divider{
+  display: flex;
+  align-items: center;
+  margin: 3em;
+  &::before,
+  &::after{
+    content: '';
+    display: block;
+    border: 1px solid #c9c8c8;
+    flex-grow: 1;
+  }
+  span{
+    border: 2px solid #c9c8c8;
+    border-radius: 50%;
+    padding: 1em;
+    font-size: 12px;
+    font-weight: bold;
+    color: #a4a4a4;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+    .search-form{
+      .form-control{
+        width: 70%;
+      }
+    }
+
+    .filter{
+      width: 80%;
+    }
+}

@@ -1,0 +1,52 @@
+.auth-providers{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .fa{
+    color: #fff;
+    text-align: center;
+    width: 1em;
+    padding: 3px;
+    vertical-align: middle;
+  }
+
+  .provider{
+    width: 17em;
+    margin: 3px 0;
+    padding: 0.6em;
+    border-radius: 0.2em;
+    cursor: pointer;
+    span{
+      padding: 3px;
+      color: #fff;
+    }
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  .fb{
+    background-color: #3B5998;
+    border: 1px solid #193776;
+  }
+  .google{
+    background-color: #dd4b39;
+    border: 1px solid #bb2917;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .auth-providers{
+    .fa{
+      font-size: 20px;
+    }
+    .provider{
+      width: 13em;
+      span{
+        font-size: 14px;
+      }
+    }
+  }
+}
