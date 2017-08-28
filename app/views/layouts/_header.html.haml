@@ -10,7 +10,8 @@
             = button_tag(type: "submit", class: 'search-button') do
               = fa_icon "search lg"
       - if user_signed_in?
-        %li{:style => "margin-right: 10px"}= link_to 'Add recipe', new_recipe_url, class: 'btn button'
+        %li{style: "margin-right: 10px"}= link_to 'Add recipe', new_recipe_path, class: 'btn button'
+        %li= link_to 'My recipes', users_recipes_path, class: 'btn button'
         %li= link_to 'Account', edit_user_registration_path, class: 'btn button'
         %li= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn button'
       - else
