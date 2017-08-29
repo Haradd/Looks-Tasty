@@ -1,0 +1,6 @@
+= simple_form_for([@recipe, @recipe.reviews.build]) do |f|
+  %label Rating
+  #rating-form
+    %label Rating
+  = f.input :comment
+  = f.button :submit, class: "btn button"

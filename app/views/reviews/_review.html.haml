@@ -1,0 +1,8 @@
+.review
+  .review-rating{"data-score" => "#{review.rating}"}
+  %p.review-comment= review.comment
+  - if user_signed_in?
+    - if review.user_id == current_user.id
+      .links.btn-group
+        = link_to "Edit", edit_recipe_review_path(review.recipe, review), remote: true, class: "btn button"
+        = link_to "Delete", recipe_review_path(review.recipe, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn button"
