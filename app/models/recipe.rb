@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
+  has_many :reviews
   has_many :ingredients, dependent: :destroy
   has_many :steps, dependent: :destroy
 

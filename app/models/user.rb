@@ -6,6 +6,7 @@ class User < ApplicationRecord
          authentication_keys: [:email], omniauth_providers: %i[facebook google_oauth2]
 
   has_many :recipes
+  has_many :reviews
   has_many :user_providers, dependent: :destroy
 
   validates :username, :email, uniqueness: true
