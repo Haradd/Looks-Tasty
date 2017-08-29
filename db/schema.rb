@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828101254) do
+ActiveRecord::Schema.define(version: 20170829092803) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 20170828101254) do
     t.integer "user_id"
     t.index ["category_id"], name: "index_recipes_on_category_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.integer "recipe_id"
+    t.integer "user_id"
+    t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "steps", force: :cascade do |t|
