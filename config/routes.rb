@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
-  resources :recipes
+  resources :recipes do
+    resources :reviews
+  end
 
   get '/about' => 'home#about', as: 'about'
 
