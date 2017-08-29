@@ -13,7 +13,9 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1
   # GET /recipes/1.json
-  def show; end
+  def show
+    @average_review = @recipe.reviews.average(:rating).to_f.round(2) if @recipe.reviews.present?
+  end
 
   # GET /recipes/new
   def new
