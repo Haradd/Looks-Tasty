@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :ingredients, dependent: :destroy
   has_many :steps, dependent: :destroy
 
@@ -16,7 +16,7 @@ class Recipe < ApplicationRecord
                                 reject_if: :all_blank,
                                 allow_destroy: true
 
-  validates :name,  :image, :ingredients, :steps, presence: true
+  validates :name, :image, :ingredients, :steps, presence: true
   validates :name, length: { maximum: 80 }
   has_attached_file :image, styles: { big: "550x370#", medium: "360x270#", small: "100x90#" },
                             default_url: "/images/:style/missing.png"
