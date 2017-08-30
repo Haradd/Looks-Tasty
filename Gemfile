@@ -62,6 +62,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', require: false
+  gem 'ffaker'
 
 end
 

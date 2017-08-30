@@ -121,6 +121,7 @@ GEM
     execjs (2.7.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
+    ffaker (2.6.0)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
@@ -365,6 +366,7 @@ DEPENDENCIES
   compass-rails
   devise (~> 4.2)
   draper
+  ffaker
   font-awesome-rails
   haml-rails
   jbuilder (~> 2.5)
