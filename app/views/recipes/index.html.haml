@@ -12,6 +12,8 @@
             = link_to (image_tag recipe.image.url(:medium)), recipe
           .recipe-name
             %h3= link_to recipe.name, recipe
-            - #to do: add rating
+          .review-rating-box
+            .average-review-rating{"data-score" => "#{recipe.average_review}"}
+            .counts-review-rating= "#{recipe.counts_review}"
 .text-center
   = paginate @recipe
