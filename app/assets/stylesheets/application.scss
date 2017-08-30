@@ -71,7 +71,7 @@ body {
   }
 }
 
-.background{
+.container.background{
   background-color: #eee;
   @include box-shadow;
 }
@@ -96,7 +96,7 @@ body {
 
 .panel.panel-default{
   margin-top: 60px;
-  @include box-shadow;
+  @include box-shadow-light;
 }
 
 .form-control:focus {

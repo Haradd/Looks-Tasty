@@ -45,20 +45,20 @@
 		max-width: 100%;
 		border-radius: 5px 5px 0 0;
 		overflow: hidden;
-	}
-	img {
-		width: 100%;
-		-webkit-transition: all .3s ease-out;
-	  -moz-transition: all .3s ease-out;
-	  -o-transition: all .3s ease-out;
-    transition: all .3s ease-out;
-		&:hover {
-			transform: scale(1.075);
-		}
+    img {
+      width: 100%;
+      -webkit-transition: all .3s ease-out;
+      -moz-transition: all .3s ease-out;
+      -o-transition: all .3s ease-out;
+      transition: all .3s ease-out;
+      &:hover {
+        transform: scale(1.075);
+      }
+    }
 	}
 	.recipe-name{
 		h3{
-			padding: 15px 5%;
+			padding: 0.3em;
 			margin: 0;
 			font-size: 20px;
 			font-weight: normal;
@@ -68,6 +68,14 @@
 			}
 		}
 	}
+  .review-rating-box{
+    display: flex;
+    padding: 0.3em;
+    .counts-review-rating{
+      font-size: 14px;
+      margin-left: 5px;
+    }
+  }
 
 }
 
@@ -84,27 +92,31 @@
 	h3{
 		text-align: center;
 	}
-	span{
-		margin-right: 50px;
-	}
+
 	p{
 		margin-top: 20px;
 	}
-
+  .recipe-infos{
+    display: flex;
+    justify-content: space-around;
+    .review-rating-box{
+      display: flex;
+      .counts-review-rating{
+        font-size: 14px;
+        margin-left: 5px;
+      }
+    }
+  }
 }
 
 .ingredients, .steps{
 	background-image: url(asset-path('paper.jpg'));
-	//background: white;
-	//border: 1px solid #ddd;
 	border-radius: 5px;
 	@include box-shadow-recipe;
 	min-height: 360px;
-	padding: 35px 10%;
+	padding: 55px 10%;
 	margin-bottom: 2%;
 	font-family: 'Gloria Hallelujah', cursive;
-
-
 	h3{
 		display: flex;
 		align-items: center;
@@ -118,9 +130,6 @@
 		flex-grow: 2;
 		right: 2;
 		margin: auto;
-
-
-
 	}
 	ul, ol{
 		padding-left: 20px;
@@ -151,7 +160,10 @@
 }
 
 .recipe_time{
-	display: table;
+  display: table;
+	.form-inline{
+    display: flex;
+  }
 }
 
 #recipe_description{
@@ -171,7 +183,7 @@
 }
 
 .nested-fields{
-	margin-bottom: 50px;
+  padding: 30px;
   .recipe_ingredients_name{
     display: inline-block;
     margin-right: 15px !important;
@@ -189,4 +201,10 @@
     margin-bottom:  20px;
 
   }
+}
+
+@media only screen and (max-width: 400px) {
+    .recipe-infos{
+      flex-direction: column;
+    }
 }

@@ -12,4 +12,4 @@
         = link_to 'Remove', recipe, method: :delete, class: 'btn btn-danger',
             data: { confirm: 'Are you sure?' }
       .users-recipe-date
-        = recipe.created_at.strftime("%d/%m/%Y")
+        = recipe.formatted_created_at

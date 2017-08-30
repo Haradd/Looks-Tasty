@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :check_if_signed_in, only: :recipes
 
   def recipes
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.decorate
   end
 
   # GET /users/finish_sign_up
