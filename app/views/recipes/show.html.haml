@@ -21,7 +21,6 @@
       %h5
         added by
         %strong= @recipe.user.username
-        = @recipe.formatted_created_at
         = @recipe.edit_link
 .row
   .col-md-6
@@ -44,13 +43,11 @@
         = fa_icon "lightbulb-o 2x"
       %p= @recipe.tip
 .row
-  .col-md-4
+  .col-md-12
     .reviews
-      / Where the reviews/ratings will go
-      %h1 Reviews
-      = render @recipe.reviews
+      %h3 Reviews
+      = render @recipe.reviews.decorate
       %div
-        = link_to "Add Review", new_recipe_review_path(@recipe), remote: true, class: "btn button"
-.row
-  .col-md-4
-    #review-form-container
+        = link_to "Add Review", new_recipe_review_path(@recipe), remote: true, class: "btn button-full"
+
+#review-form-container

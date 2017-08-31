@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :set_recipe
   before_action :set_review, only: %i[edit update destroy]
-  before_action :check_if_user_already_posted_review, only: %i[new create]
   before_action :authenticate_user!, except: %i[index]
+  before_action :check_if_user_already_posted_review, only: %i[new create]
 
   decorates_assigned :review
 

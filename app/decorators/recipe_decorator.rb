@@ -22,20 +22,6 @@ class RecipeDecorator < Draper::Decorator
   end
 
   def edit_link
-    h.link_to('Edit', h.edit_recipe_path(object)).html_safe if user == h.current_user
+    h.link_to("Edit", h.edit_recipe_path(object)).html_safe if user == h.current_user
   end
-
-  def paginate
-    h.paginate(object)
-  end
-
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
-
 end
