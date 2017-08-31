@@ -9,35 +9,41 @@ class ReviewsController < ApplicationController
   def index; end
 
   def new
-    @review = Review.new
+    @review = @recipe.reviews.build
     respond_to do |format|
-      format.js { render layout: false }
+      format.js
     end
   end
 
   def create
-    @review = Review.new(review_params)
+    @review = @recipe.reviews.build(review_params)
     @review.recipe_id = @recipe.id
     @review.user_id = current_user.id
 
-    if @review.save
-      redirect_to recipe_path(@recipe)
-    else
-      render "new"
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to recipe_path(@recipe), notice: "Successfully added new review" }
+      else
+        format.js { render 'new'}
+      end
     end
+
+
   end
 
   def edit
     respond_to do |format|
-      format.js { render layout: false }
+      format.js
     end
   end
 
   def update
-    if @review.update(review_params)
-      redirect_to recipe_path(@recipe)
-    else
-      render "edit"
+    respond_to do |format|
+      if @review.update(review_params)
+        format.html { redirect_to recipe_path(@recipe), notice: "Successfully edited the review" }
+      else
+        format.js { render "edit" }
+      end
     end
   end
 

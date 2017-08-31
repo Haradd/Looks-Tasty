@@ -4,7 +4,10 @@
       .panel-heading
         =header
       .panel-body
-        = simple_form_for([recipe, review]) do |f|
+        = simple_form_for([recipe, review], remote: true) do |f|
+          - if review.errors.any?
+            .alert.alert-danger
+              %p= review.errors.full_messages.first
           %label Rating
           #rating-form
           = f.input :comment

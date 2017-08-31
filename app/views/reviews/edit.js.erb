@@ -1,1 +1,3 @@
-$("#review-form-container").html("<%= escape_javascript(render partial: 'reviews/edit', locals: { review: @review } ) %>").trigger('show-stars');
+$("#review-form-container")
+  .html("<%= j (render partial: 'form', locals: { header: 'Edit review', recipe: @recipe, review: @review } ) %>")
+  .trigger('show-stars');
