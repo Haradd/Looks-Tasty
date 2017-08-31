@@ -25,9 +25,8 @@
 @import "footer";
 @import "recipes";
 @import "users";
+@import "reviews";
 @import "social-buttons";
-
-
 
 
 html{
@@ -117,37 +116,30 @@ body {
 }
 
 .button {
-  // background: $yellow;
   border-radius: 10px;
   border: 3px solid $yellow;
-
   color: #fff;
-  background: {
-    image: linear-gradient(45deg,$yellow 50%, transparent 50%);
-    position: 100%;
-    size: 400%;
-  }
-  transition: background 300ms ease-in-out ;
-
   &:hover {
     border: 3px solid $yellow-dark !important;
     background-color: $yellow !important;
     background-position: 0;
     color: #fff !important;
+    transition: background 300ms ease-in-out ;
   }
 }
 
 .button-full {
   border-radius: 10px;
-  border-color: $yellow;
-  border-width: 3px;
+  border: 3px solid $yellow;
   color: #fff;
-  box-shadow: 0 0 40px 40px $yellow inset, 0 0 0 0 $yellow;
-  transition: all 150ms ease-in-out;
+  background-color: $yellow;
 
   &:hover {
-    box-shadow: 0 0 10px 0 $yellow inset, 0 0 10px 4px $yellow;
+    border: 3px solid $yellow-dark !important;
+    background-color: $yellow !important;
+    @include box-shadow-light;
     color: #fff !important;
+    transition: border 300ms ease-in-out ;
   }
 }
 
