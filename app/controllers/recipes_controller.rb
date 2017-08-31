@@ -10,13 +10,15 @@ class RecipesController < ApplicationController
   def index
     pages = 12
     @recipe = Recipe.search(params[:search])
-    @recipe = @recipe.by_category(params[:category]).page(params[:page]).per(pages)
-    @recipe = @recipe.decorate
+    @recipe = @recipe.by_category(params[:category])
+    @recipe = @recipe.page(params[:page]).per(pages).decorate
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
-  def show; end
+  def show
+    @reviews = @recipe.reviews.order("created_at DESC").page(params[:page]).per(10).decorate
+  end
 
   # GET /recipes/new
   def new

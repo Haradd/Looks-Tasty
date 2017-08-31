@@ -4,3 +4,13 @@
   .review-date= review.formatted_created_at
   = review.owner_buttons
   .review-comment= review.comment
+
+:javascript
+  $('.review-rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+      }
+  });
+  $('.review-rating').raty('reload');

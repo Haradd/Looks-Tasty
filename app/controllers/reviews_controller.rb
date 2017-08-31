@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
 
   decorates_assigned :review
 
-  def index; end
 
   def new
     @review = @recipe.reviews.build

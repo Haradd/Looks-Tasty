@@ -46,8 +46,10 @@
   .col-md-12
     .reviews
       %h3 Reviews
-      = render @recipe.reviews.decorate
-      %div
-        = link_to "Add Review", new_recipe_review_path(@recipe), remote: true, class: "btn button-full"
+      #reviews
+        = render @reviews
+      = link_to "Add Review", new_recipe_review_path(@recipe), remote: true, class: "btn button-full"
+      #paginator= paginate @reviews, remote: true
+
 
 #review-form-container

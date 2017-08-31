@@ -264,7 +264,7 @@ Devise.setup do |config|
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.
-  # The following options are available, assuming the engine is mounted as:
+  # The following options are available, assuming the engine is mounted as:z
   #
   #     mount MyEngine, at: '/my_engine'
   #
