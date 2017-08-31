@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
 
   decorates_assigned :review
 
-
   def new
     @review = @recipe.reviews.build
     respond_to do |format|
@@ -23,11 +22,9 @@ class ReviewsController < ApplicationController
       if @review.save
         format.html { redirect_to recipe_path(@recipe), notice: "Successfully added new review" }
       else
-        format.js { render 'new'}
+        format.js { render "new" }
       end
     end
-
-
   end
 
   def edit

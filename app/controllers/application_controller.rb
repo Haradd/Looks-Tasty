@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       super
     else
       respond_to do |format|
-        format.html { redirect_to new_user_session_path, notice: 'Please sign in first' }
+        format.html { redirect_to new_user_session_path, notice: "Please sign in first" }
       end
 
     end
