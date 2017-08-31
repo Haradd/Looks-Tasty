@@ -1,7 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :set_recipe
   before_action :set_review, only: %i[edit update destroy]
-  before_action :authenticate_user!, only: %i[new edit]
+  before_action :check_if_user_already_posted_review, only: %i[new create]
+  before_action :authenticate_user!, except: %i[index]
+
+  decorates_assigned :review
+
+  def index; end
 
   def new
     @review = Review.new
@@ -53,5 +58,11 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find(params[:id])
+  end
+
+  def check_if_user_already_posted_review
+    return if @recipe.reviews.where(user_id: current_user.id).count.zero?
+    flash[:notice] = "You have already posted review. However, it can be edited"
+    render js: "window.location.href='" + recipes_path + "/" + @recipe.id.to_s + "'"
   end
 end
