@@ -3,17 +3,22 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :correct_user, only: %i[edit update destroy]
 
+  decorates_assigned :recipe
+
   # GET /recipes
   # GET /recipes.json
   def index
     pages = 12
     @recipe = Recipe.search(params[:search])
-    @recipe = @recipe.by_category(params[:category]).page(params[:page]).per(pages)
+    @recipe = @recipe.by_category(params[:category])
+    @recipe = @recipe.page(params[:page]).per(pages).decorate
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
-  def show; end
+  def show
+    @reviews = @recipe.reviews.order("created_at DESC").page(params[:page]).per(10).decorate
+  end
 
   # GET /recipes/new
   def new
@@ -67,7 +72,7 @@ class RecipesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id]).decorate
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

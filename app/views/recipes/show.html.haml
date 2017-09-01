@@ -6,20 +6,22 @@
   .col-md-6
     .description
       %h3= @recipe.name
-      %span
-        = fa_icon "clock-o 2x"
-        = @recipe.time.hour
-        \:#{@recipe.time.min}
-      %span
-        = fa_icon "group 2x"
-        = @recipe.portions.to_s
+      .recipe-infos
+        %div
+          = fa_icon "clock-o 2x"
+          = @recipe.preparation_time
+        %div
+          = fa_icon "group 2x"
+          = @recipe.portions.to_s
+        .review-rating-box
+          .average-review-rating{"data-score" => "#{@recipe.average_review}"}
+          .counts-review-rating= "#{@recipe.counts_review}"
       %p
         = @recipe.description
       %h5
         added by
         %strong= @recipe.user.username
-      - if @recipe.user == current_user
-        = link_to 'Edit', edit_recipe_path(@recipe)
+        = @recipe.edit_link
 .row
   .col-md-6
     .ingredients
@@ -40,3 +42,14 @@
         %strong Cook's Tip
         = fa_icon "lightbulb-o 2x"
       %p= @recipe.tip
+.row
+  .col-md-12
+    .reviews
+      %h3 Reviews
+      #reviews
+        = render @reviews
+      = link_to "Add Review", new_recipe_review_path(@recipe), remote: true, class: "btn button-full"
+      #paginator= paginate @reviews, remote: true
+
+
+#review-form-container

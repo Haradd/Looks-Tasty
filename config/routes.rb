@@ -7,8 +7,10 @@ Rails.application.routes.draw do
       post 'users/finish_sign_up' => 'users#configure_profile'
   end
 
-  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
-  resources :recipes
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks", registrations: 'users/registrations' }
+  resources :recipes do
+    resources :reviews
+  end
 
   get '/about' => 'home#about', as: 'about'
 

@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def authenticate_user!(opts = {})
+    if user_signed_in?
+      super
+    else
+      respond_to do |format|
+        format.html { redirect_to new_user_session_path, notice: "Please sign in first" }
+      end
+    end
+  end
+
   def configure_permitted_parameters
     added_attrs = %i[username email password password_confirmation remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs

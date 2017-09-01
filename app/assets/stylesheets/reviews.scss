@@ -1,0 +1,26 @@
+.reviews{
+  background-color: #eee;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.5em 2em;
+  .review{
+    margin-top: 16px;
+  }
+  .review-rating, .review-owner, .review-date{
+    display: inline;
+    margin-right: 10px;
+  }
+  .review-comment{
+    &::after{
+      content: '';
+      display: block;
+      border: 1px solid #ddd;
+    }
+  }
+}
+
+.review-form-container{
+  #rating-form{
+    display: inline;
+  }
+}

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :check_if_signed_in, only: :recipes
 
   def recipes
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.decorate
   end
 
   # GET /users/finish_sign_up
@@ -45,6 +45,6 @@ class UsersController < ApplicationController
 
   def check_if_signed_in
     return if current_user.present?
-    redirect_to recipes_path, notice: "Sorry, something went wrong!"
+    redirect_to recipes_path, notice: "Sorry, that recipes are not yours!"
   end
 end
