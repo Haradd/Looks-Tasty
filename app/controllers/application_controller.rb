@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       super
     else
-      respond_to { |format| format.html { redirect_to new_user_session_path, notice: "Please sign in first" } }
+      respond_to do |format|
+        format.html { redirect_to new_user_session_path, notice: "Please sign in first" }
+      end
     end
   end
 
