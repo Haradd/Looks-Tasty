@@ -45,6 +45,6 @@ class UsersController < ApplicationController
 
   def check_if_signed_in
     return if current_user.present?
-    redirect_to recipes_path, notice: "Sorry, something went wrong!"
+    redirect_to recipes_path, notice: "Sorry, that recipes are not yours!"
   end
 end
