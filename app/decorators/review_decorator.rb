@@ -12,6 +12,7 @@ class ReviewDecorator < Draper::Decorator
   end
 
   def owner_buttons
+    return unless current_user.present?
     return unless current_user.id == object.user_id
     content_tag :div, class: "btn-group" do
       concat link_to "Edit", edit_recipe_review_path(review.recipe, review),

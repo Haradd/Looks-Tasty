@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_recipe
   before_action :set_review, only: %i[edit update destroy]
+  before_action :check_if_user_is_signed_in, only: %i[new]
   before_action :authenticate_user!, except: %i[index]
   before_action :check_if_user_already_posted_review, only: %i[new create]
 
@@ -60,6 +61,12 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find(params[:id])
+  end
+
+  def check_if_user_is_signed_in
+    return if current_user.present?
+    flash[:notice] = "Please sign in before adding a review"
+    render js: "window.location.href='" + new_user_session_path + "'"
   end
 
   def check_if_user_already_posted_review
