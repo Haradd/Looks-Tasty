@@ -5,6 +5,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         @user = UserProvider.find_for_oauth(request.env["omniauth.auth"])
 
         if @user.persisted?
+          flash[:notice] = 'Signed in successfully with #{provider}'
           sign_in_and_redirect @user, event: :authentication
         else
           session["devise.oauth_data"] = request.env["omniauth.auth"].except(:extra)
