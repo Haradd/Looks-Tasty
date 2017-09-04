@@ -7,6 +7,6 @@ FactoryGirl.define do
     description { FFaker::Lorem.sentence }
     tip { FFaker::Lorem.sentence }
     portion { rand(1..6) }
-    time { FFaker::Time.datetime}
+    time { FFaker::Time.datetime }
   end
 end

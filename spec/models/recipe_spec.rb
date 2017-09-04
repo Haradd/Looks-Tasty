@@ -16,6 +16,5 @@ RSpec.describe Recipe, type: :model do
     it { should have_many(:reviews).dependent(:destroy) }
     it { should have_many(:ingredients).dependent(:destroy) }
     it { should have_many(:steps).dependent(:destroy) }
-
   end
 end
