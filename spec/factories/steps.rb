@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :step do
     recipe
-    name { FFaker::Lorem.sentence }
+    step { FFaker::Lorem.sentence }
   end
 end
