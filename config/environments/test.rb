@@ -41,7 +41,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.paperclip_defaults = {
-  path: ':rails_root/spec/test_recipe_images/:class/:id/:attachment/:filename.:extension',
-  url: ':rails_root/spec/test_recipe_images/:class/:id/:attachment/:filename.:extension'
+  path: ':rails_root/tmp/test_recipe_images/:class/:id/:attachment/:filename.:extension',
+  url: ':rails_root/tmp/test_recipe_images/:class/:id/:attachment/:filename.:extension'
   }
 end
