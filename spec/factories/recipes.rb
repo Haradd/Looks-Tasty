@@ -10,11 +10,9 @@ FactoryGirl.define do
     portions { rand(1..6) }
     time { FFaker::Time.datetime }
 
-    factory :recipe_with_steps_and_ingredients do
-      before(:create) do |recipe|
-        recipe.steps << FactoryGirl.build(:step, recipe: recipe)
-        recipe.ingredients << FactoryGirl.build(:ingredient, recipe: recipe)
-      end
+    before(:create) do |recipe|
+      recipe.steps << FactoryGirl.build(:step, recipe: recipe)
+      recipe.ingredients << FactoryGirl.build(:ingredient, recipe: recipe)
     end
   end
 end
