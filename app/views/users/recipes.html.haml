@@ -6,11 +6,15 @@
           = image_tag recipe.image.url(:small)
         .users-recipe-name
           = recipe.name
-      .users-recipe-edit-button
-        = link_to 'Edit', edit_recipe_path(recipe), class: 'btn btn-default'
-      .users-recipe-remove-button
-        = link_to 'Remove', recipe, method: :delete, class: 'btn btn-danger',
-            data: { confirm: 'Are you sure?' }
+      .review-rating-box
+        .average-review-rating{"data-score" => "#{recipe.average_review}"}
+        .counts-review-rating= "#{recipe.counts_review}"
+      .users-recipe-buttons
+        .users-recipe-edit-button
+          = link_to 'Edit', edit_recipe_path(recipe), class: 'btn btn-default'
+        .users-recipe-remove-button
+          = link_to 'Remove', recipe, method: :delete, class: 'btn btn-danger',
+              data: { confirm: 'Are you sure?' }
       .users-recipe-date
         = recipe.formatted_created_at
 .text-center

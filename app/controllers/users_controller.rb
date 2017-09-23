@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def recipes
     pages = 15
     @recipes = current_user.recipes
+    @recipes = @recipes.order("created_at DESC")
     @recipes = @recipes.page(params[:page]).per(pages).decorate
   end
 

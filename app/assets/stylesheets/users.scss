@@ -2,10 +2,9 @@
   .users-recipe{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     width: 90%;
-    max-height: 100px;
     border: 1px solid #666;
     @include box-shadow;
     border-radius: 10px;
@@ -17,7 +16,7 @@
       display: flex;
       flex-wrap: nowrap;
       align-items: flex-start;
-      width: 100%;
+      width: 60%;
 
       .users-image-wrapper, img{
         border-radius: 10px;
@@ -29,9 +28,24 @@
         color: #555;
       }
     }
-    a.btn{
-      display: inline;
-      padding: 0.5em;
+    .users-recipe-buttons{
+      display: flex;
+      a.btn{
+        display: inline;
+        padding: 0.5em;
+        width: 100%;
+      }
+    }
+    .review-rating-box{
+      display: block;
+      padding: 0.3em;
+      .average-review-rating{
+        width: 100px;
+      }
+      .counts-review-rating{
+        font-size: 14px;
+        margin-left: 5px;
+      }
     }
     .users-recipe-date{
       padding: 1em;
