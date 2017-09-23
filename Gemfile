@@ -54,6 +54,8 @@ gem 'omniauth-google-oauth2'
 
 gem 'draper'
 
+gem 'friendly_id', '~> 5.2', '>= 5.2.3'
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
