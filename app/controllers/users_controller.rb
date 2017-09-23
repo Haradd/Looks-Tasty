@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   before_action :check_if_signed_in, only: :recipes
 
   def recipes
-    @recipes = current_user.recipes.decorate
+    pages = 15
+    @recipes = current_user.recipes
+    @recipes = @recipes.page(params[:page]).per(pages).decorate
   end
 
   # GET /users/finish_sign_up
