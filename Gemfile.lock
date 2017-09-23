@@ -139,6 +139,8 @@ GEM
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
+    friendly_id (5.2.3)
+      activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     haml (5.0.2)
@@ -391,6 +393,7 @@ DEPENDENCIES
   factory_girl_rails
   ffaker
   font-awesome-rails
+  friendly_id (~> 5.2, >= 5.2.3)
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)
