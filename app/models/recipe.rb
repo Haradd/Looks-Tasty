@@ -3,11 +3,10 @@ class Recipe < ApplicationRecord
   friendly_id :slug_candidates, use: [:slugged, :finders]
 
   def slug_candidates
-    [:name] + [[:name, "#{User.find(user_id).username}"]] + Array.new(6) {|index| [:name, "#{User.find(user_id).username}", index+2]}
-  end
-
-  def should_generate_new_friendly_id?
-    new_record?
+    [
+      [:name],
+      [:name, :id]
+    ]
   end
 
   belongs_to :user
