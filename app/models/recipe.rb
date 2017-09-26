@@ -1,11 +1,11 @@
 class Recipe < ApplicationRecord
   extend FriendlyId
-  friendly_id :slug_candidates, use: [:slugged, :finders]
+  friendly_id :slug_candidates, use: %i[slugged finders]
 
   def slug_candidates
     [
       [:name],
-      [:name, :id]
+      %i[name id]
     ]
   end
 

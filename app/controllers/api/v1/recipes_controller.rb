@@ -10,7 +10,6 @@ module Api
       def show
         respond_with Recipe.find(params[:id])
       end
-
     end
   end
 end
