@@ -83,7 +83,7 @@ class RecipesController < ApplicationController
   end
 
   def correct_user
-    @recipe = current_user.recipes.find_by(id: params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     redirect_to recipes_path, notice: "Hey, that is not your recipe!" if @recipe.nil?
   end
 end

@@ -87,9 +87,9 @@ RSpec.describe RecipesController, type: :controller do
       it "updates the requested recipe" do
         user = FactoryGirl.create(:user)
         sign_in user
-        recipe = FactoryGirl.create(:recipe)
-        new_attributes = recipe.update_attributes(name: "New name", description: "New description")
-        put :update, params: { id: recipe.to_param, recipe: new_attributes }, session: valid_session
+        recipe = FactoryGirl.create(:recipe, user: user)
+        new_recipe_attributes = recipe.attributes.merge(new_attributes)
+        put :update, params: { id: recipe.to_param, recipe: new_recipe_attributes }, session: valid_session
         recipe.reload
         expect(recipe.name).to eq "New name"
         expect(recipe.description).to eq "New description"
