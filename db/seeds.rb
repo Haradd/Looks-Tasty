@@ -57,6 +57,7 @@ puts "Creating reviews..."
       user: User.find(user_id),
       recipe: Recipe.find(rand(1..recipe_count))
     )
+    print '.'
   end
 end
 puts "Created reviews"
