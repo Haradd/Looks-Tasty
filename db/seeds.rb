@@ -48,6 +48,7 @@ end
 puts "Created #{recipe_count} recipes"
 
 puts "Creating reviews..."
+# each user adds random number of reviews
 (1..user_count).to_a.each do |user_id|
   rand(5..recipe_count).times do
     Review.create!(
