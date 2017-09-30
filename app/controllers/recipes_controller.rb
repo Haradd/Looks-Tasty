@@ -9,7 +9,8 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     pages = 12
-    @recipe = Recipe.search(params[:search])
+    @recipe = Recipe.includes(:reviews)
+    @recipe = @recipe.search(params[:search])
     @recipe = @recipe.by_category(params[:category])
     @recipe = @recipe.page(params[:page]).per(pages).decorate
   end
@@ -17,7 +18,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
-    @reviews = @recipe.reviews.order("created_at DESC").page(params[:page]).per(10).decorate
+    @reviews = Review.includes(:user).joins(:recipe).where( recipes: { id: @recipe.id } ).order("created_at DESC").page(params[:page]).per(10).decorate
   end
 
   # GET /recipes/new
