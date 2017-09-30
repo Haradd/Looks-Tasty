@@ -87,6 +87,7 @@ group :development do
   gem 'meta_request'
 
   gem 'pry-rails'
+  gem 'bullet'
 end
 
 group :production do
