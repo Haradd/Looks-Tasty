@@ -8,25 +8,9 @@ end
 ruby '2.3.1'
 
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-# gem 'bcrypt', '~> 3.1.7'
-# gem 'capistrano-rails', group: :development
-# gem 'redis', '~> 3.0'
-# gem 'therubyracer', platforms: :ruby
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-# Use ActiveModel has_secure_password
-# Use Capistrano for deployment
-# Use CoffeeScript for .coffee assets and views
-# Use Puma as the app server
-# Use Redis adapter to run Action Cable in production
-# Use SCSS for stylesheets
-# Use Uglifier as compressor for JavaScript assets
-#pagination
-#provide nested forms
 gem 'aws-sdk', '~> 2.3'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+#provide nested forms
 gem 'cocoon', '~> 1.2', '>= 1.2.10'
 gem 'coffee-rails', '~> 4.2'
 gem 'compass-rails'
@@ -34,9 +18,9 @@ gem 'devise', '~> 4.2'
 gem 'draper'
 gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'haml-rails'
-gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-turbolinks'
+#provide pagination
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
@@ -45,7 +29,9 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.2'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form', '~> 3.5'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolink
 gem 'turbolinks', '~> 5'
+# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem "font-awesome-rails"
 
@@ -69,17 +55,15 @@ group :test do
 end
 
 group :development do
-
-
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  #for RailsPanel in Chrome
   gem 'bullet'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  #provide RailsPanel in Chrome
   gem 'meta_request'
   gem 'pry-rails'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring'
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 end
 

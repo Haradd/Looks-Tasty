@@ -16,7 +16,9 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1
   def show
-    @reviews = Review.includes(:user).joins(:recipe).where( recipes: { id: @recipe.id } ).order("created_at DESC").page(params[:page]).per(10).decorate
+    @reviews = Review.includes(:user).joins(:recipe)
+                     .where(recipes: { id: @recipe.id }).order("created_at DESC")
+                     .page(params[:page]).per(10).decorate
   end
 
   # GET /recipes/new
