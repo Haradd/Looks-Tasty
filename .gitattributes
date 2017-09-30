@@ -1,1 +1,2 @@
-app/assets/* linguist-vendored
+*.rb diff=ruby
+*.gemspec diff=ruby
