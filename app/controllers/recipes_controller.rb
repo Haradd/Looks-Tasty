@@ -33,31 +33,28 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.build(recipe_params)
 
-    respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to @recipe, notice: "Recipe was successfully added." }
-      else
-        format.html { render :new }
-      end
+    if @recipe.save
+      redirect_to @recipe, notice: "Recipe was successfully added."
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /recipes/1
   def update
-    respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: "Your recipe was successfully updated." }
-      else
-        format.html { render :edit }
-      end
+    if @recipe.update(recipe_params)
+      redirect_to @recipe, notice: "Your recipe was successfully updated."
+    else
+      render :edit
     end
   end
 
   # DELETE /recipes/1
   def destroy
-    @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: "Your recipe was successfully deleted." }
+    if @recipe.destroy
+      redirect_to recipes_url, notice: "Your recipe was successfully deleted."
+    else
+      redirect_to @recipe, notice: "Something went wrong. Recipe was not deleted."
     end
   end
 

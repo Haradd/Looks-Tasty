@@ -2,17 +2,6 @@ class Recipe < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: %i[slugged finders]
 
-  def slug_candidates
-    [
-      [:name],
-      %i[name id]
-    ]
-  end
-
-  def should_generate_new_friendly_id?
-    new_record? || slug.blank?
-  end
-
   belongs_to :user
   belongs_to :category
 
@@ -47,4 +36,15 @@ class Recipe < ApplicationRecord
         .order("recipes.created_at DESC")
     end
   }
+
+  def slug_candidates
+    [
+      [:name],
+      %i[name id]
+    ]
+  end
+
+  def should_generate_new_friendly_id?
+    new_record? || slug.blank?
+  end
 end
