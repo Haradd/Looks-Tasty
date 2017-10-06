@@ -1,9 +1,5 @@
-class RecipeDecorator < Draper::Decorator
+class RecipeDecorator < ApplicationDecorator
   delegate_all
-
-  def self.collection_decorator_class
-    PaginatingDecorator
-  end
 
   def formatted_created_at
     created_at.strftime("%d/%m/%Y")
