@@ -7,10 +7,9 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :user_providers, dependent: :destroy
 
-
   validates :username, presence: true, uniqueness: { case_sensivity: false }, length: { maximum: 25 },
-                    format: { with: /\A[a-zA-Z0-9\-._]+\z/,
-                              message: "Please do not use whitespaces or special characters" }
+                       format: { with: /\A[a-zA-Z0-9\-._]+\z/,
+                                 message: "Please do not use whitespaces or special characters" }
 
   validates :email, uniqueness: true
 
