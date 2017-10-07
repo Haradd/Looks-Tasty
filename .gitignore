@@ -17,6 +17,9 @@
 !/log/.keep
 !/tmp/.keep
 
+#ignore db images
+/public/system/*
+
 /node_modules
 /yarn-error.log
 
