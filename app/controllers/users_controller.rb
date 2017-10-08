@@ -17,18 +17,8 @@ class UsersController < ApplicationController
 
   # POST /users/finish_sign_up
   def configure_profile
-    @user = User.new(session["devise.new_user"])
-    @user.username = user_params[:username]
-    @user.password = Devise.friendly_token[0, 20]
-
-    if @user.save
-      auth = session["devise.oauth_data"]
-      UserProvider.create!(
-        provider: auth["provider"],
-        uid: auth["uid"],
-        user_id: @user.id
-      )
-
+    @user = CreateOauthUser.new(session["devise.new_user"], user_params[:username]).call
+    if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
     else
       render :finish_oauth_sign_up
