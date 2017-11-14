@@ -23,7 +23,7 @@ class Recipe < ApplicationRecord
                             default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: %r{\Aimage\/.*\z}
 
-  scope :search, lambda { |word|
+  scope :search_with, lambda { |word|
     where("name LIKE ?", "%#{word}%") if word.present?
   }
 
