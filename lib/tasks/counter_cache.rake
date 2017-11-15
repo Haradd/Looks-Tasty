@@ -1,4 +1,4 @@
-desc 'Counter cache for recipe and user has many reviews'
+desc "Counter cache for recipe and user has many reviews"
 
 task review_counter: :environment do
   Recipe.reset_column_information

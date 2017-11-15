@@ -17,12 +17,10 @@ ActiveAdmin.register Recipe do
     actions
   end
 
-
-  sidebar "Recipe Content", only: [:show, :edit] do
+  sidebar "Recipe Content", only: %i[show edit] do
     ul do
       li link_to "Steps", admin_recipe_steps_path(resource)
       li link_to "Ingredients", admin_recipe_ingredients_path(resource)
     end
   end
-
 end
