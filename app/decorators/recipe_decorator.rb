@@ -14,7 +14,7 @@ class RecipeDecorator < ApplicationDecorator
   end
 
   def counts_review
-    "(#{reviews.count})".strip if reviews.present?
+    "(#{reviews_count})".strip if reviews.present?
   end
 
   def edit_link
