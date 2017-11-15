@@ -61,3 +61,10 @@ puts "Creating reviews..."
   end
 end
 puts "Created reviews"
+
+puts "Creating admin user..."
+if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+  print '.'
+end
+puts "Created admin user"

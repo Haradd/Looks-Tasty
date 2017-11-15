@@ -24,9 +24,7 @@ db:structure:dump
 db:structure:load
 db:version
 dev:cache
-haml:convert_erbs
 haml:erb2haml
-haml:replace_erbs
 initializers
 log:clear
 middleware
@@ -39,11 +37,17 @@ paperclip:refresh:metadata
 paperclip:refresh:missing_styles
 paperclip:refresh:thumbnails
 restart
+review_counter
 routes
 secret
+spec
+spec:controllers
+spec:decorators
+spec:models
 stats
 test
 test:db
+test:decorators
 test:system
 time:zones[country_or_offset]
 tmp:clear
