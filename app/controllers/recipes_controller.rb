@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   def index
     pages = 12
     @recipe = Recipe.includes(:reviews)
-    @recipe = @recipe.search(params[:search])
+    @recipe = @recipe.search_with(params[:search])
     @recipe = @recipe.by_category(params[:category])
     @recipe = @recipe.page(params[:page]).per(pages).decorate
   end
