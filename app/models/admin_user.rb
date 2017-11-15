@@ -5,5 +5,4 @@ class AdminUser < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, uniqueness: true
-  
 end
