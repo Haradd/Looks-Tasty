@@ -1,33 +1,37 @@
 ActiveAdmin.register_page "Dashboard" do
+  menu priority: 1
+  content title: proc { I18n.t("active_admin.dashboard") } do
+    columns do
+      column do
+        panel "Recently added Recipes" do
+          table_for Recipe.includes(:user).order("id desc").limit(10) do
+            column("Name", &:name)
+            column("Author") { |recipe| recipe.user.username }
+            column("Reviews count", &:reviews_count)
+            column("Average rating") { |recipe| recipe.reviews.average(:rating).round(2) }
+          end
+        end
+      end
 
-  menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
-
-  content title: proc{ I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+      column do
+        panel "New Users" do
+          table_for User.order("id desc").limit(10).each do |_user|
+            column(:username)
+            column(:email) { |user| link_to(user.email, admin_user_path(user)) }
+          end
+        end
       end
     end
 
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
-  end # content
+    columns do
+      column do
+        div do
+          br
+          text_node %(<iframe src="https://rpm.newrelic.com/public/charts/6VooNO2hKWB"
+                              width="500" height="300" scrolling="no" frameborder="no">
+                      </iframe>).html_safe
+        end
+      end
+    end
+  end
 end
