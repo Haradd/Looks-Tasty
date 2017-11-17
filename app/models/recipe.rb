@@ -28,12 +28,12 @@ class Recipe < ApplicationRecord
   }
 
   scope :by_category, lambda { |category|
-    if category.blank?
-      order("created_at DESC")
-    else
+    if Category.all.pluck(:name).include? category
       joins(:category)
         .where(categories: { name: category })
         .order("recipes.created_at DESC")
+    else
+      order("created_at DESC")
     end
   }
 
