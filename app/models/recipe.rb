@@ -38,10 +38,7 @@ class Recipe < ApplicationRecord
     if option == "popularity"
       order("reviews_count DESC")
     elsif option == "best"
-      binding.pry
-      return Recipe.includes(:reviews).each do |r|
-        r.reviews.average(:rating).to_f
-      end
+      order("reviews_average DESC")
     else
       order("created_at DESC")
     end
