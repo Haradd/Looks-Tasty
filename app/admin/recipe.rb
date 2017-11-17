@@ -1,7 +1,7 @@
 ActiveAdmin.register Recipe do
   decorate_with RecipeDecorator
 
-  includes :user, :reviews
+  includes :user
 
   permit_params :name, :description, :image, :time, :tip, :portions, :category_id,
                 ingredients_attributes: %i[id name _destroy],
@@ -11,7 +11,7 @@ ActiveAdmin.register Recipe do
     selectable_column
     id_column
     column :name
-    column :average_review
+    column :reviews_average
     column :reviews_count
     column :user
     actions
