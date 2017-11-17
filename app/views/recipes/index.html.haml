@@ -3,6 +3,15 @@
     = active_link_to 'All', recipes_path, class: 'btn button-filter'
     - Category.all.each do |category|
       = active_link_to category.name, recipes_path(category: category.name), class: 'btn button-filter'
+
+  .dropdown
+    %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+      = sort_option
+      %span.caret
+    %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+      %li= link_to "Newest", recipes_path(permitted_params.merge(sort:'newest'))
+      %li= link_to "Most popular", recipes_path(permitted_params.merge(sort:'popularity'))
+      %li= link_to "Best", recipes_path(permitted_params.merge(sort:'best'))
 - @recipe.each_slice(3) do |recipes|
   #first.row
     - recipes.each do |recipe|

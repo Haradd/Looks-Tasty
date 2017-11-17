@@ -24,4 +24,7 @@ $(document).ready(function(){
   setTimeout(function(){
     $('#notice-wrapper').fadeOut("slow");
   }, 3000);
+  
+  $('.dropdown-toggle').dropdown();
+
 });

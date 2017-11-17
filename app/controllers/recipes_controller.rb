@@ -11,6 +11,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.includes(:reviews)
     @recipe = @recipe.search_with(filter_params[:search])
     @recipe = @recipe.by_category(filter_params[:category])
+    @recipe = @recipe.filter_by(filter_params[:sort])
+    binding.pry
     @recipe = @recipe.page(params[:page]).per(pages).decorate
   end
 

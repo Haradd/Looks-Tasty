@@ -31,7 +31,17 @@ class Recipe < ApplicationRecord
     if Category.all.pluck(:name).include? category
       joins(:category)
         .where(categories: { name: category })
-        .order("recipes.created_at DESC")
+    end
+  }
+
+  scope :filter_by, lambda { |option|
+    if option == "popularity"
+      order("reviews_count DESC")
+    elsif option == "best"
+      binding.pry
+      return Recipe.includes(:reviews).each do |r|
+        r.reviews.average(:rating).to_f
+      end
     else
       order("created_at DESC")
     end
