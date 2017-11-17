@@ -6,6 +6,4 @@ task reviews_average: :environment do
     r.update_attribute(:reviews_average, average.round(2))
     r.save
   end
-
-
 end

@@ -4,7 +4,6 @@ module ApplicationHelper
   end
 
   def active_link_to(name, href, class_arg)
-    binding.pry
     if current_page?(recipes_path(category: name))
       class_arg[:class] += " active"
     elsif params[:category].nil? && name == "All"
