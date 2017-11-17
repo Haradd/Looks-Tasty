@@ -12,14 +12,13 @@ class RecipesController < ApplicationController
     @recipe = @recipe.search_with(filter_params[:search])
     @recipe = @recipe.by_category(filter_params[:category])
     @recipe = @recipe.filter_by(filter_params[:sort])
-    binding.pry
     @recipe = @recipe.page(params[:page]).per(pages).decorate
   end
 
   # GET /recipes/1
   def show
-    @reviews = Review.includes(:user).joins(:recipe)
-                     .where(recipes: { id: @recipe.id }).order("created_at DESC")
+    @reviews = Review.includes(:user).includes(:recipe)
+                     .where(recipes: { id: @recipe.id }).order("reviews.created_at DESC")
                      .page(params[:page]).per(10).decorate
   end
 
