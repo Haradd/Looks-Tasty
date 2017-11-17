@@ -38,6 +38,7 @@ paperclip:refresh:missing_styles
 paperclip:refresh:thumbnails
 restart
 review_counter
+reviews_average
 routes
 secret
 spec
