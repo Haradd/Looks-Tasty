@@ -12,4 +12,13 @@ module ApplicationHelper
 
     "<a class='#{class_arg[:class]}' href='#{href}#first'>#{name}</a>".html_safe
   end
+
+  def sort_option
+    option_name = params.permit(:sort)[:sort]
+    option_name.present? ? option_name : "Sort by"
+  end
+
+  def permitted_params
+    params.permit(:search, :category, :sort).to_h
+  end
 end
