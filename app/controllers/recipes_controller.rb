@@ -9,8 +9,8 @@ class RecipesController < ApplicationController
   def index
     pages = 12
     @recipe = Recipe.includes(:reviews)
-    @recipe = @recipe.search_with(params[:search])
-    @recipe = @recipe.by_category(params[:category])
+    @recipe = @recipe.search_with(filter_params[:search])
+    @recipe = @recipe.by_category(filter_params[:category])
     @recipe = @recipe.page(params[:page]).per(pages).decorate
   end
 
@@ -70,6 +70,10 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:search, :name, :description, :image, :time, :tip,
     :portions, :category_id, page: [:id], ingredients_attributes: %i[id name _destroy],
                              steps_attributes: %i[id step _destroy])
+  end
+
+  def filter_params
+    params.permit(:search, :category, :sort)
   end
 
   def correct_user
