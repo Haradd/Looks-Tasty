@@ -10,7 +10,7 @@ class RecipeDecorator < ApplicationDecorator
   end
 
   def average_review
-    reviews.average(:rating).to_f.round(2) if reviews.present?
+    reviews_average.to_f.round(2) if reviews.present?
   end
 
   def counts_review
