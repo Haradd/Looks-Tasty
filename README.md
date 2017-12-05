@@ -37,9 +37,11 @@ Name |  Version |
 
   * `cd ~/Developer/`
   * `git clone git@github.com:Haradd/Looks-Tasty.git`
-  * `cd team_delta_project`
+  * `cd looks-tasty`
   * `bundle install`
   * create database with default seeds `rake db:create db:schema:load && rake db:seed`
+  * `rake reviews_average`
+  * `rake review_counter`
 
 # Running / Development :shoe:
 
