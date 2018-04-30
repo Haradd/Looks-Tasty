@@ -8,11 +8,11 @@ class RecipesController < ApplicationController
   # GET /recipes
   def index
     pages = 12
-    @recipe = Recipe.includes(:reviews)
-    @recipe = @recipe.search_with(filter_params[:search])
-    @recipe = @recipe.by_category(filter_params[:category])
-    @recipe = @recipe.filter_by(filter_params[:sort])
-    @recipe = @recipe.page(params[:page]).per(pages).decorate
+    @recipes = Recipe.includes(:reviews)
+    @recipes = @recipes.search_with(filter_params[:search])
+    @recipes = @recipes.by_category(filter_params[:category])
+    @recipes = @recipes.filter_by(filter_params[:sort])
+    @recipes = @recipes.page(params[:page]).per(pages).decorate
   end
 
   # GET /recipes/1

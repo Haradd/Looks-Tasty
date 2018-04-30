@@ -12,7 +12,7 @@
       %li= link_to "Newest", recipes_path(permitted_params.merge(sort:'newest'))
       %li= link_to "Most popular", recipes_path(permitted_params.merge(sort:'popularity'))
       %li= link_to "Best", recipes_path(permitted_params.merge(sort:'best'))
-- @recipe.each_slice(3) do |recipes|
+- @recipes.each_slice(3) do |recipes|
   #first.row
     - recipes.each do |recipe|
       .col-md-4
@@ -25,4 +25,4 @@
             .average-review-rating{"data-score" => "#{recipe.average_review}"}
             .counts-review-rating= "#{recipe.counts_review}"
 .text-center
-  = paginate @recipe
+  = paginate @recipes

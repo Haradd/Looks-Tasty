@@ -44,7 +44,7 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
 Layout/DotPosition:
   EnforcedStyle: leading
-  Enabled: true
+  Enabled: truez
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/ClassAndModuleChildren:
