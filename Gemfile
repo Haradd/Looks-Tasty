@@ -8,6 +8,7 @@ end
 ruby '2.3.1'
 
 gem 'activeadmin'
+gem 'active_model_serializers'
 gem 'aws-sdk', '~> 2.3'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 #provide nested forms
