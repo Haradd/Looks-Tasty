@@ -23,7 +23,6 @@ class Recipe < ApplicationRecord
                             default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: %r{\Aimage\/.*\z}
 
-
   scope :by_name, lambda { |word|
     where("lower(recipes.name) LIKE ?", "%#{word.downcase}")
   }

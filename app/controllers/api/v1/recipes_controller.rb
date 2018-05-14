@@ -4,11 +4,18 @@ module Api
       respond_to :json
 
       def index
-        respond_with Recipe.all
+        recipes = Recipe.filter(filter_params).page(params[:page]).per(params[:per_page])
+        render json: recipes, include: params[:include], meta: pagination(recipes, params[:page], params[:per_page])
       end
 
       def show
-        respond_with Recipe.find(params[:id])
+        render json: Recipe.find(params[:id]), include: params[:include]
+      end
+
+      private
+
+      def filter_params
+        params.permit(:search, :category, :sort)
       end
     end
   end

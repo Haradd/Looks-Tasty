@@ -21,4 +21,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: %i[email password]
   end
+
+  def pagination(paginated_array, page, per_page)
+    { pagination: { page: page.to_i,
+                    per_page: per_page.to_i,
+                    total_pages: paginated_array.total_pages,
+                    total_objects: paginated_array.total_count } }
+  end
 end
