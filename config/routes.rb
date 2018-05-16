@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
+  root to: 'recipes#index'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :recipes
+      resources :recipes, only: [:index, :show, :create, :update, :destroy] do
+        resources :reviews, only: [:show, :create, :update, :destroy]
+      end
     end
+
+    post 'auth/login', to: 'authentication#authenticate'
+    post 'signup', to: 'registrations#create'
   end
-  root to: 'recipes#index'
+
 
   devise_scope :user do
       get 'users/recipes' => 'users#recipes'

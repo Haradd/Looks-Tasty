@@ -21,6 +21,7 @@ gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'haml-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-turbolinks'
+gem 'jwt'
 #provide pagination
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'omniauth-facebook'
