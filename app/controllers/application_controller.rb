@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session, if: -> { request.format.json? }
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -20,12 +21,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: %i[email password]
-  end
-
-  def pagination(paginated_array, page, per_page)
-    { pagination: { page: page.to_i,
-                    per_page: per_page.to_i,
-                    total_pages: paginated_array.total_pages,
-                    total_objects: paginated_array.total_count } }
   end
 end
