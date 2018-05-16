@@ -4,7 +4,6 @@ module Api
       before_action :authorize_request, except: [:show]
       before_action :set_review, except: :create
 
-
       def show
         render json: @review
       end
@@ -42,7 +41,6 @@ module Api
       def review_params
         params.permit(:rating, :comment)
       end
-
     end
   end
 end

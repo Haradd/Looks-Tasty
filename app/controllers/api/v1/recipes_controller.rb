@@ -1,7 +1,7 @@
 module Api
   module V1
     class RecipesController < Api::ApplicationController
-      before_action :authorize_request, except: [:index, :show]
+      before_action :authorize_request, except: %i[index show]
 
       def index
         recipes = Recipe.filter(filter_params).page(params[:page]).per(params[:per_page])
