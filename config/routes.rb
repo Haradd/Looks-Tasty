@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   root to: 'recipes#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config

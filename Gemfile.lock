@@ -61,6 +61,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    apipie-rails (0.5.8)
+      rails (>= 4.1)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (8.0.0)
@@ -418,6 +420,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   activeadmin
+  apipie-rails
   aws-sdk (~> 2.3)
   bootstrap-sass (~> 3.3, >= 3.3.7)
   bullet
