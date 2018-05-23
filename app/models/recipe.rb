@@ -23,8 +23,8 @@ class Recipe < ApplicationRecord
                             default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: %r{\Aimage\/.*\z}
 
-  scope :search_with, lambda { |word|
-    where("name LIKE ?", "%#{word}%") if word.present?
+  scope :by_name, lambda { |word|
+    where("lower(recipes.name) LIKE ?", "%#{word.downcase}")
   }
 
   scope :by_category, lambda { |category|
@@ -34,7 +34,7 @@ class Recipe < ApplicationRecord
     end
   }
 
-  scope :filter_by, lambda { |option|
+  scope :by_sort, lambda { |option|
     if option == "popularity"
       order("reviews_count DESC")
     elsif option == "best"
@@ -43,6 +43,16 @@ class Recipe < ApplicationRecord
       order("created_at DESC")
     end
   }
+
+  def self.filter(params = {})
+    recipes = Recipe.includes(:reviews)
+
+    recipes = recipes.by_name(params[:search]) if params[:search].present?
+    recipes = recipes.by_category(params[:category]) if params[:category].present?
+    recipes = recipes.by_sort(params[:sort]) if params[:sort].present?
+
+    recipes
+  end
 
   def slug_candidates
     [

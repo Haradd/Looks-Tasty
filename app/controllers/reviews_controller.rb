@@ -15,9 +15,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = @recipe.reviews.build(review_params)
-    @review.recipe_id = @recipe.id
-    @review.user_id = current_user.id
+    @review = current_user.reviews.build(review_params)
+    @recipe.reviews << @review
 
     respond_to do |format|
       if @review.save
