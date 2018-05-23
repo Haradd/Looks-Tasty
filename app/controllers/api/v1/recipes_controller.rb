@@ -4,7 +4,7 @@ module Api
       before_action :authorize_request, except: %i[index show]
 
       def index
-        recipes = Recipe.filter(filter_params).page(params[:page]).per(params[:per_page])
+        recipes = Recipe.includes(:category).includes(:user).filter(filter_params).page(params[:page]).per(params[:per_page])
         render json: recipes, include: params[:include], meta: pagination(recipes, params[:page], params[:per_page])
       end
 
