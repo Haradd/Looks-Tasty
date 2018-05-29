@@ -2,10 +2,8 @@ Rails.application.routes.draw do
   root to: 'recipes#index'
 
   apipie
-  
-  if Rails.env.development? || Rails.env.production?
-    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
-  end
+
+  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   post "/graphql", to: "graphql#execute"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
