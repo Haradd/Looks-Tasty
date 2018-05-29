@@ -1,6 +1,6 @@
 module Api
   class AuthenticationController < Api::ApplicationController
-    # before_action :authorize_request, except: :authenticate
+    include AuthenticationDoc
 
     def authenticate
       auth_token =
