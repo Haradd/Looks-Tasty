@@ -47,14 +47,19 @@ module RecipesDoc
   api :POST, "/recipes", "Create a recipe"
   header "Authentication", "Your JWT TOKEN", required: true
   param_group :recipe
+  error code: 401, desc: "Unauthorized"
+  error code: 422, desc: "Unprocessable entity"
   def create; end
 
   api :PATCH, "/recipes/:id", "Update the recipe"
   header "Authentication", "Your JWT TOKEN", required: true
   param_group :recipe
+  error code: 401, desc: "Unauthorized"
+  error code: 422, desc: "Unprocessable entity"
   def update; end
 
   api :DELETE, "/recipes/:id", "Delete the recipe"
   header "Authentication", "Your JWT TOKEN", required: true
+  error code: 401, desc: "Unauthorized"
   def destroy; end
 end
