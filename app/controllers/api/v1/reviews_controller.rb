@@ -1,6 +1,8 @@
 module Api
   module V1
     class ReviewsController < Api::ApplicationController
+      include ReviewsDoc
+
       before_action :authorize_request, except: [:show]
       before_action :set_review, except: :create
 
