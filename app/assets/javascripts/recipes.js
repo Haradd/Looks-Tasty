@@ -1,26 +1,15 @@
-// window.onscroll = function() {myFunction()};
-//
-// var header = document.getElementById("wrap");
-// var sticky = header.offsetTop;
-//
-// function myFunction() {
-//   if (window.pageYOffset >= sticky) {
-//     header.classList.add("sticky");
-//   } else {
-//     header.classList.remove("sticky");
-//   }
-// }
-
 
 $(document).ready(function() {
   var $infobox = $("#infobox");
-  $infobox.hide();
+//$infobox.css("visibility", "visible");
+//  $infobox.animate({visibility: "visible"}, 1000);
 
   setTimeout(function(){
-    $infobox.fadeIn("medium");
+     $infobox.fadeIn('medium')
   }, 3000);
 
-  $infobox.first().click(function(){
+  console.log($infobox.children("fa.fa-times"));
+  $infobox.children("i").click(function(){
     $infobox[0].classList.add("off");
   })
 
