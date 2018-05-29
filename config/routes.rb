@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  apipie
   root to: 'recipes#index'
+
+  apipie
+  
+  if Rails.env.development? || Rails.env.production?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
+  post "/graphql", to: "graphql#execute"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

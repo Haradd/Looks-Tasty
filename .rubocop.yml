@@ -16,11 +16,12 @@ Metrics/AbcSize:
   Max: 25
   Exclude:
     - 'spec/**/*'
-Style/BlockLength:
+Metrics/BlockLength:
   Exclude:
     - 'Rakefile'
     - '**/*.rake'
     - 'spec/**/*.rb'
+    - 'app/graphql/**/*.rb'
 
 AllCops:
   TargetRubyVersion: 2.4
@@ -48,4 +49,8 @@ Layout/DotPosition:
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/ClassAndModuleChildren:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
+Lint/UnusedBlockArgument:
   Enabled: false

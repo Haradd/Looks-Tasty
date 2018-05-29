@@ -15,10 +15,12 @@
 #infobox
   = fa_icon "times"
   .infobox-content
-    = link_to "Check out REST API!", apipie_apipie_path
+    = link_to "Check out REST API ", apipie_apipie_path
+    = fa_icon "external-link"
+    = link_to "and GraphQL ", "/graphiql"
     = fa_icon "external-link"
     %hr
-    It might taste good
+    It might taste good!
 
 - @recipes.each_slice(3) do |recipes|
   #first.row
