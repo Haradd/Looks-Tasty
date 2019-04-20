@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :omniauthable,
+  devise :database_authenticatable, :registerable, :omniauthable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:email], omniauth_providers: %i[facebook google_oauth2]
 

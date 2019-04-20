@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.3.1'
+ruby '~> 2.4'
 
 gem 'activeadmin'
 gem 'active_model_serializers'
@@ -17,6 +17,7 @@ gem 'cocoon', '~> 1.2', '>= 1.2.10'
 gem 'coffee-rails', '~> 4.2'
 gem 'compass-rails'
 gem 'devise', '~> 4.2'
+gem 'dotenv-rails'
 gem 'draper'
 gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'graphql'
