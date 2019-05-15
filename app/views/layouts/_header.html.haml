@@ -5,10 +5,23 @@
     %ul.nav.navbar-nav.navbar-right
       %li
         = form_tag(recipes_path, method: :get, class: 'search-form') do
-          .form-group
+          .form-group.dropdown
             = text_field_tag :search, params[:search], class: 'form-control'
+            %button.more-button.dropdown-toggle{ "aria-expanded" => "false", "data-toggle" => "collapse", "data-target" => "#more", :type => "button"}
+              <i class="fa fa-chevron-down fa-lg"></i>
             = button_tag(type: "submit", class: 'search-button') do
               = fa_icon "search lg"
+            .form-group#more.dropdown-menu{ "role" => "menu"}
+              = hidden_field_tag :category, params[:category]
+              = hidden_field_tag :sort, params[:sort]
+              %h5
+                %strong Ingredients
+                %hr
+              = label_tag "ingredients_include", "include", class: 'text-success'
+              = select_tag "ingredients_include[]", options_from_collection_for_select(Ingredient.all, "id", "name"), class: 'ingredients-include', multiple: :multiple
+              = label_tag "ingredients_exclude", "exclude", class: 'text-danger'
+              = select_tag "ingredients_exclude[]", options_from_collection_for_select(Ingredient.all, "id", "name"), class: 'ingredients-exclude', multiple: :multiple
+
       - if user_signed_in?
         %li{style: "margin-right: 10px"}= link_to 'Add recipe', new_recipe_path, class: 'btn button'
         %li= link_to 'My recipes', users_recipes_path, class: 'btn button'
