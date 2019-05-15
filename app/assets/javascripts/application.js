@@ -25,6 +25,6 @@ $(document).ready(function(){
     $('#notice-wrapper').fadeOut("slow");
   }, 3000);
 
-  $('.dropdown-toggle').dropdown();
-
+  $('.ingredients-include').select2();
+  $('.ingredients-exclude').select2();
 });
