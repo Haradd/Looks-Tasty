@@ -70,7 +70,7 @@ class RecipesController < ApplicationController
   end
 
   def filter_params
-    params.permit(:search, :category, :sort)
+    params.permit(:search, :category, :sort, ingredients_include: [], ingredients_exclude: [])
   end
 
   def correct_user
