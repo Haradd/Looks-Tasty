@@ -8,9 +8,10 @@ $(document).ready(function() {
      $infobox.fadeIn('medium')
   }, 3000);
 
-  console.log($infobox.children("fa.fa-times"));
+
   $infobox.children("i").click(function(){
     $infobox[0].classList.add("off");
   })
 
+  //$('.chosen-select').select2();
 });
