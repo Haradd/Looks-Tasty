@@ -50,7 +50,8 @@ class Recipe < ApplicationRecord
     recipes = recipes.by_name(params[:search]) if params[:search].present?
     recipes = recipes.by_category(params[:category]) if params[:category].present?
     recipes = recipes.by_sort(params[:sort]) if params[:sort].present?
-
+    recipes = recipes.joins(:ingredients).where(ingredients: { id: params[:ingredients_include] }) if params[:ingredients_include]
+    recipes = recipes.joins(:ingredients).where.not(ingredients: { id: params[:ingredients_exclude] }) if params[:ingredients_exclude]
     recipes
   end
 
