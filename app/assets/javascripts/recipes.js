@@ -13,5 +13,4 @@ $(document).ready(function() {
     $infobox[0].classList.add("off");
   })
 
-  //$('.chosen-select').select2();
 });

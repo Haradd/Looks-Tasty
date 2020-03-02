@@ -28,3 +28,8 @@ $(document).ready(function(){
   $('.ingredients-include').select2();
   $('.ingredients-exclude').select2();
 });
+
+$(document).on('turbolinks:load', function() {
+  $('.ingredients-include').select2();
+  $('.ingredients-exclude').select2();
+});
