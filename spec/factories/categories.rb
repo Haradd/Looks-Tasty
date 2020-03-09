@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :category do
     name { ["Appetizers & Snacks", "Breakfast & Brunch", "Dinner", "Desserts", "Drinks"].sample }
   end

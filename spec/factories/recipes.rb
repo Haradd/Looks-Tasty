@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :recipe do
     user
     category
@@ -11,8 +11,8 @@ FactoryGirl.define do
     time { FFaker::Time.datetime }
 
     before(:create) do |recipe|
-      recipe.steps << FactoryGirl.build(:step, recipe: recipe)
-      recipe.ingredients << FactoryGirl.build(:ingredient, recipe: recipe)
+      recipe.steps << FactoryBot.build(:step, recipe: recipe)
+      recipe.ingredients << FactoryBot.build(:ingredient, recipe: recipe)
     end
   end
 end

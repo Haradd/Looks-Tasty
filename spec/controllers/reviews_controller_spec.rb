@@ -18,8 +18,8 @@ RSpec.describe ReviewsController, type: :controller do
 
   describe "GET #new" do
     it "returns a success response" do
-      recipe = FactoryGirl.create(:recipe)
-      review = FactoryGirl.build(:review, recipe: recipe)
+      recipe = FactoryBot.create(:recipe)
+      review = FactoryBot.build(:review, recipe: recipe)
       get :new, xhr: true, params: { recipe_id: recipe.id, id: review.to_param }, format: :js
       expect(response).to be_success
     end

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :step do
     recipe
     step { FFaker::Lorem.sentence }
