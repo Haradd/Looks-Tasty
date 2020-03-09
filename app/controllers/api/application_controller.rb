@@ -3,8 +3,6 @@ module Api
     include Response
     include ExceptionHandler
 
-    protect_from_forgery with: :null_session
-
     attr_reader :current_user
 
     private
