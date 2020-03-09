@@ -1,4 +1,4 @@
-require "factory_bot_rails"
+# require "factory_bot_rails"
 
 puts "Creating categories..."
 categories = ["Appetizers & Snacks", "Breakfast & Brunch", "Dinner", "Desserts", "Drinks"]
