@@ -51,22 +51,27 @@ puts "Created #{recipe_count} recipes"
 
 puts "Creating reviews..."
 # each user adds random number of reviews
+recipe_errors = 0
 recipes = Recipe.all
 User.all.each do |user|
   break if Review.count >= user_count * recipe_count
 
-  rand(5..recipe_count).times do
-    Review.create!(
-      rating: rand(2..5),
-      comment: FFaker::Lorem.sentence,
-      user: User.find(user_id),
-      recipe: recipe.sample
-    )
-    print '.'
-  rescue
-    print "error"
+  begin
+    rand(5..recipe_count).times do
+      Review.create!(
+        rating: rand(2..5),
+        comment: FFaker::Lorem.sentence,
+        user: User.find(user_id),
+        recipe: recipe.sample
+      )
+      print '.'
+    rescue
+      print 'error'
+      recipe_errors += 1
+    end
   end
 end
+puts "Failed to create #{recipe_errors} recipes"
 puts "Created reviews"
 
 puts "Creating admin user..."
