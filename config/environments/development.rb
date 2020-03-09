@@ -35,7 +35,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -73,4 +73,6 @@ Rails.application.configure do
       :authentication => "plain",
       :enable_starttls_auto => true
   }
+
+  Paperclip.options[:command_path] = "/usr/bin/"
 end
