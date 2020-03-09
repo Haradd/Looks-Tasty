@@ -30,7 +30,7 @@ recipe_count.times do
     category: Category.find_by(name: category),
     name: FFaker::Lorem.words(rand(3..6)).join(" "),
     description: FFaker::Lorem.sentence,
-    image: FFaker::Avatar.image,
+    image: open(FFaker::Avatar.image),
     tip: FFaker::Lorem.sentence,
     portions: rand(1..6),
     time: FFaker::Time.datetime
@@ -44,6 +44,8 @@ recipe_count.times do
   recipe.save
 
   print "."
+rescue
+  print "error"
 end
 puts "Created #{recipe_count} recipes"
 
@@ -58,6 +60,8 @@ puts "Creating reviews..."
       recipe: Recipe.find(rand(1..recipe_count))
     )
     print '.'
+  rescue
+    print "error"
   end
 end
 puts "Created reviews"
