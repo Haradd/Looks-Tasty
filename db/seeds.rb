@@ -20,6 +20,7 @@ puts "Created #{user_count} users"
 
 puts "Creating recipes..."
 recipe_count = 1000
+user_id = 1
 while Recipe.count < recipe_count do
   begin
     user_id = rand(1..user_count)
