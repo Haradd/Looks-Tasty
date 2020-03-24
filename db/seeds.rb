@@ -20,15 +20,17 @@ puts "Created #{user_count} users"
 
 puts "Creating recipes..."
 recipe_count = 1000
-while Recipe.count < 1000
+while Recipe.count < recipe_count do
   begin
     user_id = rand(1..user_count)
     category = categories.sample
 
+    recipe_name = Recipe.find_by(name: 'test name id').present? ? FFaker::Lorem.words(rand(3..6)).join(" ") : 'test name id'
+    
     recipe = Recipe.new(
       user: User.find(user_id),
       category: Category.find_by(name: category),
-      name: FFaker::Lorem.words(rand(3..6)).join(" "),
+      name: recipe_name,
       description: FFaker::Lorem.sentence,
       image: nil,
       tip: FFaker::Lorem.sentence,
@@ -56,16 +58,15 @@ User.all.each do |user|
   begin
     break if Review.count >= user_count * recipe_count
 
-    rand(5..recipe_count).times do
-      Review.create!(
-        rating: rand(2..5),
-        comment: FFaker::Lorem.sentence,
-        user: User.find(user_id),
-        recipe: recipe.sample
-      )
-      print "."
-    end
-  rescue StandardError
+  rand(5..recipe_count).times do
+    Review.create!(
+      rating: rand(2..5),
+      comment: FFaker::Lorem.sentence,
+      user: User.find(user_id),
+      recipe: recipes.sample
+    )
+    print '.'
+  rescue
     print "error"
   end
 end
@@ -73,7 +74,7 @@ puts "Created reviews"
 
 puts "Creating admin user..."
 if Rails.env.development?
-  AdminUser.where!(email: "admin@example.com").first_or_create!(password: "password", password_confirmation: "password")
-  print "."
+  AdminUser.where(email: 'admin@example.com').first_or_create!(password: 'password', password_confirmation: 'password')
+  print '.'
 end
 puts "Created admin user"
