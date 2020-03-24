@@ -66,7 +66,7 @@ User.all.each do |user|
       recipe: recipes.sample
     )
     print '.'
-  rescue
+  rescue StandardError
     print "error"
   end
 end
