@@ -30,7 +30,7 @@ while Recipe.count < 1000
       category: Category.find_by(name: category),
       name: FFaker::Lorem.words(rand(3..6)).join(" "),
       description: FFaker::Lorem.sentence,
-      image: open(FFaker::Avatar.image),
+      image: nil,
       tip: FFaker::Lorem.sentence,
       portions: rand(1..6),
       time: FFaker::Time.datetime
