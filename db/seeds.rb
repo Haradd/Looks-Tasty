@@ -58,14 +58,15 @@ User.all.each do |user|
   begin
     break if Review.count >= user_count * recipe_count
 
-  rand(5..recipe_count).times do
-    Review.create!(
-      rating: rand(2..5),
-      comment: FFaker::Lorem.sentence,
-      user: User.find(user_id),
-      recipe: recipes.sample
-    )
-    print '.'
+    rand(5..recipe_count).times do
+      Review.create!(
+        rating: rand(2..5),
+        comment: FFaker::Lorem.sentence,
+        user: User.find(user_id),
+        recipe: recipes.sample
+      )
+      print '.'
+    end
   rescue StandardError
     print "error"
   end
