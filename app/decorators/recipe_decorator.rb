@@ -10,11 +10,11 @@ class RecipeDecorator < ApplicationDecorator
   end
 
   def average_review
-    reviews_average.to_f.round(2) if reviews.present?
+    reviews_average.to_f.round(2) if reviews_average.positive?
   end
 
   def counts_review
-    "(#{reviews_count})".strip if reviews.present?
+    "(#{reviews_count})" if reviews_count.positive?
   end
 
   def edit_link

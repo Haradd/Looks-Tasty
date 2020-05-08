@@ -45,8 +45,7 @@ class Recipe < ApplicationRecord
   }
 
   def self.filter(params = {})
-    recipes = Recipe.includes(:reviews)
-
+    recipes = Recipe.all
     recipes = recipes.by_name(params[:search]) if params[:search].present?
     recipes = recipes.by_category(params[:category]) if params[:category].present?
     recipes = recipes.by_sort(params[:sort]) if params[:sort].present?
