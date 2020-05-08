@@ -28,7 +28,7 @@ class Recipe < ApplicationRecord
   }
 
   scope :by_category, lambda { |category|
-    if Category.all.pluck(:name).include? category
+    if Category.all_cached.pluck(:name).include? category
       joins(:category)
         .where(categories: { name: category })
     end
