@@ -11,7 +11,7 @@ class AddIndexes < ActiveRecord::Migration[5.1]
     # fullindex because we use LIKE for filtering https://github.com/Haradd/Looks-Tasty/blob/zai-heroku/app/models/recipe.rb#L33
     # sqlite doesn't support fulltext index
     unless Rails.env.development? || Rails.env.test?
-      add_index :recipes, :name, type: :fulltext
+      # exec "CREATE INDEX recipes_name_fulltext_idx ON recipes USING GIN (to_tsvector(name))"
     end
   end
 end
