@@ -24,7 +24,11 @@ class Recipe < ApplicationRecord
   validates_attachment_content_type :image, content_type: %r{\Aimage\/.*\z}
 
   scope :by_name, lambda { |word|
-    where("lower(recipes.name) LIKE ?", "%#{word.downcase}")
+    # if Rails.env.development? || Rails.env.production?
+      where("lower(recipes.name) LIKE ?", "%#{word.downcase}")
+    # else
+      # where("to_tsvector(name) @@ to_tsquery('#{word.downcase}')")
+    # end
   }
 
   scope :by_category, lambda { |category|
