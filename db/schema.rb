@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190417142227) do
+ActiveRecord::Schema.define(version: 20200509081459) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20190417142227) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -87,6 +88,9 @@ ActiveRecord::Schema.define(version: 20190417142227) do
     t.integer "reviews_count", default: 0
     t.float "reviews_average", default: 0.0
     t.index ["category_id"], name: "index_recipes_on_category_id"
+    t.index ["created_at"], name: "index_recipes_on_created_at"
+    t.index ["reviews_average"], name: "index_recipes_on_reviews_average"
+    t.index ["reviews_count"], name: "index_recipes_on_reviews_count"
     t.index ["slug"], name: "index_recipes_on_slug", unique: true
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
