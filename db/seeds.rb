@@ -8,7 +8,7 @@ end
 puts "Created categories: #{categories}"
 
 puts "Creating users..."
-user_count = 250
+user_count = 200
 user_count.times do |tim|
   User.where(
     username: "test#{tim}",
@@ -19,7 +19,7 @@ end
 puts "Created #{user_count} users"
 
 puts "Creating recipes..."
-recipe_count = 1000
+recipe_count = 800
 user_id = 1
 while Recipe.count < recipe_count do
   begin
@@ -58,7 +58,7 @@ users = User.all
 Recipe.all.each do |recipe|
   begin
 
-    7.times do
+    3.times do
       Review.create!(
         rating: rand(2..5),
         comment: FFaker::Lorem.sentence,
