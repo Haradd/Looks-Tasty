@@ -46,8 +46,8 @@ while Recipe.count < recipe_count do
     recipe.ingredients.build(ingredients)
     recipe.save
     print "."
-  rescue StandardError
-    print "error"
+  rescue StandardError => e
+    puts e
   end
 end
 puts "Created #{recipe_count} recipes"
