@@ -54,16 +54,16 @@ puts "Created #{recipe_count} recipes"
 
 puts "Creating reviews..."
 # each user adds random number of reviews
-recipes = Recipe.all
-User.all.each do |user|
+users = User.all
+Recipe.all.each do |recipe|
   begin
 
     7.times do
       Review.create!(
         rating: rand(2..5),
         comment: FFaker::Lorem.sentence,
-        user: User.find(user_id),
-        recipe: recipes.sample
+        user: users.sample,
+        recipe: recipe
       )
       print '.'
     end
