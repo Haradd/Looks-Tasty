@@ -98,13 +98,14 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :domain => "gmail.com",
-      :user_name => ENV['GMAIL_SMTP_USER'],
-      :password => ENV['GMAIL_SMTP_PASSWORD'],
-      :authentication => "plain",
-      :enable_starttls_auto => true
+    address:              'poczta.o2.pl',
+    port:                 465,
+    domain:               'o2.pl',
+    user_name:            ENV['O2_USERNAME'],
+    password:             ENV['O2_PASSWORD'],
+    authentication:       'plain',
+    tls:                  true,
+    enable_starttls_auto: true 
   }
 
   # config.paperclip_defaults = {
