@@ -57,9 +57,8 @@ puts "Creating reviews..."
 recipes = Recipe.all
 User.all.each do |user|
   begin
-    break if Review.count >= user_count * recipe_count
 
-    rand(5..recipe_count).times do
+    7.times do
       Review.create!(
         rating: rand(2..5),
         comment: FFaker::Lorem.sentence,
